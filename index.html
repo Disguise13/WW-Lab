@@ -425,7 +425,7 @@
 
         /* 2. 吴畏教授简介 */
         .prof-layout { display: grid; grid-template-columns: 250px 1fr; gap: 40px; }
-        .prof-avatar { width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent); border-radius: 15px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--text-sub); overflow: hidden; }
+        .prof-avatar { width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent); border-radius: 15px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--text-sub); overflow: hidden; margin: 0 auto; }
         .prof-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 14px; }
         .prof-info h2 { margin: 0 0 10px; font-size: calc(2.2rem * var(--font-scale)); font-weight: 300;}
         .prof-info p.tags { color: var(--neon-border); margin-bottom: 20px; font-size: calc(1.1rem * var(--font-scale)); }
@@ -935,8 +935,8 @@
             #content-wrapper { padding: 22px 20px; }
             .glass-panel { padding: 24px; }
             .home-grid { grid-template-columns: 1fr; }
-            .prof-layout { grid-template-columns: 1fr; gap: 20px; }
-            .prof-avatar { max-width: 240px; margin: 0 auto; }
+            .prof-layout { grid-template-columns: 1fr; gap: 20px; justify-items: center; }
+            .prof-avatar { width: 240px; }
             .hero-title { font-size: calc(2.2rem * var(--font-scale)); }
             .media-block { grid-template-columns: 1fr; }
             .media-image { min-height: 170px; }
@@ -955,7 +955,7 @@
             .btn-theme-switch { width: 34px; height: 34px; }
             .options-panel { width: min(94vw, 260px); right: 0; }
             .section-title { font-size: calc(1.5rem * var(--font-scale)); }
-            .prof-avatar { max-width: 190px; }
+            .prof-avatar { width: 180px; }
             .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
             .gallery-item { aspect-ratio: 1 / 1; }
             .member-grid { grid-template-columns: repeat(2, minmax(130px, 1fr)); gap: 10px; }
