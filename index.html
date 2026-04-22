@@ -22,19 +22,19 @@
         }
 
         body.light-mode {
-            --bg-color: #f8fbfd;
-            --bg-gradient: radial-gradient(circle at 12% 14%, rgba(135, 206, 250, 0.22) 0%, transparent 44%), radial-gradient(circle at 88% 18%, rgba(176, 224, 230, 0.18) 0%, transparent 42%), radial-gradient(circle at 76% 80%, rgba(147, 197, 253, 0.16) 0%, transparent 44%);
-            --primary-glow: rgba(30, 122, 180, 0.82);
-            --primary-glow-dim: rgba(30, 122, 180, 0.12);
-            --secondary-glow: rgba(100, 181, 246, 0.14);
-            --glass-bg: rgba(255, 255, 255, 0.76);
-            --glass-border: rgba(207, 226, 243, 0.94);
-            --neon-border: #1e7ab4;
-            --text-main: #0f1b2e;
-            --text-sub: rgba(15, 27, 46, 0.82);
-            --text-soft: rgba(15, 27, 46, 0.62);
-            --header-bg: rgba(248, 251, 253, 0.80);
-            --panel-shadow: 0 14px 32px rgba(30, 122, 180, 0.10);
+            --bg-color: #f4f8fc;
+            --bg-gradient: radial-gradient(circle at 16% 8%, rgba(44, 120, 191, 0.10) 0%, transparent 48%), radial-gradient(circle at 82% 10%, rgba(36, 96, 170, 0.07) 0%, transparent 44%), linear-gradient(180deg, #f8fbff 0%, #f2f7fb 100%);
+            --primary-glow: rgba(39, 110, 178, 0.55);
+            --primary-glow-dim: rgba(39, 110, 178, 0.08);
+            --secondary-glow: rgba(79, 151, 206, 0.10);
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(198, 218, 236, 0.95);
+            --neon-border: #1f5f97;
+            --text-main: #102034;
+            --text-sub: rgba(16, 32, 52, 0.82);
+            --text-soft: rgba(16, 32, 52, 0.62);
+            --header-bg: rgba(248, 252, 255, 0.88);
+            --panel-shadow: 0 14px 34px rgba(29, 76, 122, 0.10);
         }
 
         * { box-sizing: border-box; }
@@ -60,7 +60,9 @@
         .blob-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(30,64,175,0.7) 0%, transparent 70%); top: -10%; left: 5%; }
         .blob-2 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(14,165,233,0.5) 0%, transparent 70%); bottom: -15%; right: -5%; animation-delay: -5s; }
         .blob-3 { width: 500px; height: 500px; background: radial-gradient(circle, var(--secondary-glow) 0%, transparent 70%); top: 40%; left: 60%; animation-delay: -8s; }
-        body.light-mode .bg-blob { filter: blur(34px); opacity: 0.7; }
+        body.light-mode .bg-blob { filter: blur(50px); opacity: 0.16; }
+        body.light-mode .blob-2,
+        body.light-mode .blob-3 { display: none; }
         @keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(80px, 60px) scale(1.1); } }
 
         .glass-overlay {
@@ -77,8 +79,8 @@
             transition: width 0.3s, height 0.3s, opacity 0.3s;
         }
         body.clicked #cursor-blob { width: 800px; height: 800px; opacity: 0.15; }
-        body.light-mode #cursor-blob { width: 480px; height: 480px; opacity: 0.15; background: radial-gradient(circle, rgba(30, 122, 180, 0.4) 0%, rgba(30, 122, 180, 0.05) 50%, transparent 75%); }
-        body.light-mode body.clicked #cursor-blob { width: 900px; height: 900px; opacity: 0.1; }
+        body.light-mode #cursor-blob { display: none !important; }
+        body.light-mode.clicked #cursor-blob { width: 900px; height: 900px; opacity: 0.1; }
 
         /* === 2. 欢迎页 Intro === */
         #intro-screen {
@@ -160,6 +162,69 @@
             gap: 6px;
         }
         .btn-menu:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+        .lang-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px;
+            border-radius: 999px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .lang-btn {
+            border: none;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: transparent;
+            color: var(--text-sub);
+            cursor: pointer;
+            font-size: calc(0.84rem * var(--font-scale));
+            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+        .lang-btn:hover { color: var(--text-main); transform: translateY(-1px); }
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text-main);
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.15) inset;
+        }
+        .btn-theme-switch {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+            cursor: pointer;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+        }
+        .btn-theme-switch:hover {
+            transform: translateY(-1px) scale(1.04);
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(255,255,255,0.5);
+        }
+        .btn-theme-switch .icon {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.26s ease;
+        }
+        .btn-theme-switch .icon-moon { opacity: 1; transform: rotate(0deg) scale(1); }
+        .btn-theme-switch .icon-sun { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+        .btn-theme-switch.is-light .icon-moon { opacity: 0; transform: rotate(90deg) scale(0.45); }
+        .btn-theme-switch.is-light .icon-sun { opacity: 1; transform: rotate(0deg) scale(1); }
+        .btn-theme-switch.theme-anim {
+            animation: themeSwitchPulse 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        @keyframes themeSwitchPulse {
+            0% { transform: scale(1); }
+            40% { transform: scale(1.14); }
+            100% { transform: scale(1); }
+        }
         .options-panel {
             position: absolute;
             top: calc(100% + 10px);
@@ -206,6 +271,8 @@
         .nav-link:focus-visible,
         .btn-home:focus-visible,
         .btn-menu:focus-visible,
+        .lang-btn:focus-visible,
+        .btn-theme-switch:focus-visible,
         .logo:focus-visible,
         .pub-links a:focus-visible {
             outline: 2px solid var(--primary-glow);
@@ -213,18 +280,76 @@
             border-radius: 6px;
         }
 
+        /* 右侧章节圆点导航 */
+        #section-dots {
+            position: fixed;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 120;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px 8px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .section-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.38);
+            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        }
+        .section-dot:hover {
+            transform: scale(1.15);
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .section-dot.active {
+            transform: scale(1.45);
+            background: var(--neon-border);
+            box-shadow: 0 0 0 6px var(--primary-glow-dim);
+        }
+        body.light-mode #section-dots {
+            background: rgba(255, 255, 255, 0.55);
+        }
+
         /* 内容区容器 */
         #content-wrapper {
             flex: 1; overflow-y: auto; padding: 40px 60px;
             scroll-behavior: smooth;
+            transform: translateY(0);
+            will-change: transform;
         }
         #content-wrapper::-webkit-scrollbar { width: 6px; }
         #content-wrapper::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
 
         /* 页面切换动画类 */
-        .page-section { display: none; max-width: 1200px; margin: 0 auto; animation: fadeUp 0.6s ease forwards; }
+        .page-section { display: none; max-width: 1200px; margin: 0 auto; animation: fadeUp 0.58s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .page-section.active { display: block; }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .page-section.anim-from-next { animation: slideFromBottom 0.58s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .page-section.anim-from-prev { animation: slideFromTop 0.58s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(14px) scale(0.992); filter: blur(1.5px); }
+            70% { opacity: 1; transform: translateY(-2px) scale(1); filter: blur(0); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+        @keyframes slideFromBottom {
+            0% { opacity: 0; transform: translateY(28px) scale(0.988); filter: blur(2px); }
+            72% { opacity: 1; transform: translateY(-3px) scale(1); filter: blur(0); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+        @keyframes slideFromTop {
+            0% { opacity: 0; transform: translateY(-28px) scale(0.988); filter: blur(2px); }
+            72% { opacity: 1; transform: translateY(3px) scale(1); filter: blur(0); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
 
         /* 通用玻璃卡片 */
         .glass-panel {
@@ -258,6 +383,13 @@
         .prof-info p.tags { color: var(--neon-border); margin-bottom: 20px; font-size: calc(1.1rem * var(--font-scale)); }
         .prof-info .email { color: var(--text-sub); font-family: monospace; background: rgba(0,0,0,0.18); padding: 5px 10px; border-radius: 5px; font-size: calc(0.98rem * var(--font-scale)); }
         .prof-info .summary { color: var(--text-sub); line-height: 1.8; margin-top: 20px; font-size: calc(1.02rem * var(--font-scale)); }
+        .achievement-text {
+            color: var(--text-sub);
+            line-height: 1.9;
+            font-size: calc(1rem * var(--font-scale));
+            font-family: inherit;
+            letter-spacing: 0.01em;
+        }
         .info-list { margin-top: 30px; }
         .info-list h4 { color: var(--text-main); font-size: calc(1.2rem * var(--font-scale)); margin-bottom: 15px; font-weight: 500; border-left: 3px solid var(--primary-glow); padding-left: 10px; }
         .info-list ul { list-style: none; padding: 0; color: var(--text-sub); line-height: 1.8; font-size: calc(1rem * var(--font-scale)); }
@@ -320,6 +452,55 @@
         .member-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .member-role { color: var(--text-sub); font-size: calc(0.85rem * var(--font-scale)); margin: 8px 2px 0; text-align: center; }
         .contact-email { font-size: calc(1.2rem * var(--font-scale)); }
+        .contact-map {
+            margin-top: 18px;
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .map-canvas {
+            position: relative;
+            height: 210px;
+            background: linear-gradient(125deg, rgba(36, 110, 176, 0.22), rgba(36, 110, 176, 0.08));
+        }
+        .map-frame {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+            filter: saturate(0.95) contrast(1.02);
+        }
+        .map-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 14px;
+            border-top: 1px solid var(--glass-border);
+        }
+        .map-address {
+            color: var(--text-sub);
+            font-size: calc(0.95rem * var(--font-scale));
+            text-align: left;
+        }
+        .map-link {
+            text-decoration: none;
+            color: var(--neon-border);
+            border: 1px solid var(--neon-border);
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: calc(0.86rem * var(--font-scale));
+            white-space: nowrap;
+            transition: all 0.22s ease;
+        }
+        .map-link:hover {
+            color: #ffffff;
+            background: var(--neon-border);
+        }
+        body.light-mode .map-link:hover {
+            color: #ffffff;
+        }
         body.large-text { --font-scale: 1.2; }
         body.hide-cursor-glow #cursor-blob { display: none; }
 
@@ -706,8 +887,11 @@
             .logo { font-size: calc(1.1rem * var(--font-scale)); }
             .nav-link { font-size: calc(0.92rem * var(--font-scale)); }
             .btn-home, .btn-menu { font-size: calc(0.9rem * var(--font-scale)); }
+            .lang-btn { font-size: calc(0.8rem * var(--font-scale)); padding: 4px 8px; }
+            .btn-theme-switch { width: 34px; height: 34px; }
             .options-panel { width: min(94vw, 260px); right: 0; }
             .section-title { font-size: calc(1.5rem * var(--font-scale)); }
+            #section-dots { display: none; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -822,6 +1006,14 @@
                 <a class="nav-link" onclick="navTo('team')" data-i18n="nav_team">团队与相册</a>
                 <a class="nav-link" onclick="navTo('contact')" data-i18n="nav_contact">招聘/联系</a>
                 <div class="nav-tools">
+                    <button class="btn-theme-switch" id="btn-theme-switch" onclick="toggleThemeByButton()" aria-label="切换主题" title="切换亮色/暗色">
+                        <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3c.34 0 .67.02 1 .06A7 7 0 0 0 21 12.79z"></path></svg>
+                        <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    </button>
+                    <div class="lang-toggle" aria-label="语言切换">
+                        <button class="lang-btn" id="btn-lang-zh" onclick="setLanguage('zh')" aria-label="中文">中文</button>
+                        <button class="lang-btn" id="btn-lang-en" onclick="setLanguage('en')" aria-label="English">EN</button>
+                    </div>
                     <button class="btn-menu" id="btn-menu" onclick="toggleOptionsPanel()" aria-label="打开选项栏">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"></path><path d="M3 12h18"></path><path d="M3 18h18"></path></svg>
                         <span data-i18n="nav_options">选项</span>
@@ -834,17 +1026,6 @@
                     <div class="options-panel" id="options-panel" aria-label="页面选项">
                         <div class="options-title" data-i18n="nav_settings">页面选项 / Settings</div>
                         <label class="opt-item">
-                            <span data-i18n="lang_mode">语言 / Language</span>
-                            <select id="opt-language" onchange="setLanguage(this.value)" style="background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border); border-radius: 6px; color: var(--text-main); padding: 4px 8px; cursor: pointer; font-size: calc(0.9rem * var(--font-scale));">
-                                <option value="zh">中文</option>
-                                <option value="en">English</option>
-                            </select>
-                        </label>
-                        <label class="opt-item">
-                            <span data-i18n="opt_theme">亮色模式 / Light</span>
-                            <input type="checkbox" id="opt-theme" onchange="onThemeOptionChange()">
-                        </label>
-                        <label class="opt-item">
                             <span data-i18n="opt_large_text">大字号阅读 / Large Text</span>
                             <input type="checkbox" id="opt-large-text" onchange="toggleLargeText()">
                         </label>
@@ -852,12 +1033,20 @@
                             <span data-i18n="opt_cursor">显示鼠标光晕 / Glow</span>
                             <input type="checkbox" id="opt-cursor-glow" onchange="toggleCursorGlow()">
                         </label>
-                        <div class="opt-hint" data-i18n="opt_hint1">可先在这里切到亮色模式，再按需启用阅读和动效选项。</div>
                         <div class="opt-hint"><span data-i18n="opt_hint2">页面内容更正请联系：</span>dj_jia@sjtu.edu.cn</div>
                     </div>
                 </div>
             </div>
         </header>
+
+        <div id="section-dots" aria-label="页面分段导航">
+            <button class="section-dot active" data-section="home" onclick="navTo('home')" aria-label="首页"></button>
+            <button class="section-dot" data-section="prof" onclick="navTo('prof')" aria-label="吴畏教授"></button>
+            <button class="section-dot" data-section="research" onclick="navTo('research')" aria-label="研究方向"></button>
+            <button class="section-dot" data-section="pubs" onclick="navTo('pubs')" aria-label="代表性成果"></button>
+            <button class="section-dot" data-section="team" onclick="navTo('team')" aria-label="团队与相册"></button>
+            <button class="section-dot" data-section="contact" onclick="navTo('contact')" aria-label="招聘联系"></button>
+        </div>
 
         <main id="content-wrapper">
             
@@ -926,10 +1115,10 @@
                     </div>
                     <div class="info-list" style="margin-top: 40px;">
                         <h4 data-i18n="prof_achievement">主要学术成绩及奖励</h4>
-                        <p style="color:var(--text-sub); line-height: 1.9; margin-bottom: 14px;" data-i18n="prof_achievement_para1">
+                        <p class="achievement-text" style="margin-bottom: 14px;" data-i18n="prof_achievement_para1">
                             吴畏，上海交通大学特聘教授，资深研究员，博士生导师。在学术界和工业界均拥有丰富经验，国家海外高层次人才，曾获广东省自然科学一等奖（排名第二），现任IEEE生物医学信号处理技术委员会委员，并担任多本国际顶级期刊的编委，包括IEEE Transactions on Affective Computing和IEEE Journal of Biomedical and Health Informatics。作为通讯作者或第一作者，在Nature Biotechnology、Nature Biomedical Engineering、Nature Mental Health、Science Translational Medicine、IEEE Transactions on Pattern Analysis and Machine Intelligence以及IEEE Signal Processing magazine等生物医学工程与人工智能领域的SCI期刊上发表了数十篇高水平论文，尤其在脑电信号分析算法和精神疾病诊疗生物标志物研究方面做出了重要贡献。
                         </p>
-                        <p style="color:var(--text-sub); line-height: 1.9; margin: 0;" data-i18n="prof_achievement_para2">
+                        <p class="achievement-text" style="margin: 0;" data-i18n="prof_achievement_para2">
                             吴畏研究员是精神疾病精准诊疗公司Alto Neuroscience（纽交所上市）的联合创始人和前任首席数据科学官。构建了该领域首个精神疾病诊疗AI生物标志物转化平台，共同领导了多项精神疾病新药的临床试验，成功识别并前瞻性验证了脑环路疗效预测AI生物标志物，推动了精神疾病诊疗迈入精准医学时代。
                         </p>
                     </div>
@@ -1063,10 +1252,20 @@
                         📧 Email: <span style="color:var(--neon-border);" id="contact-email-text">weiwuneuro@sjtu.edu.cn</span>
                         <button class="btn-copy-email" onclick="copyEmail('weiwuneuro@sjtu.edu.cn')" aria-label="复制邮箱">📋</button>
                     </p>
-                    <p style="color:var(--text-sub);" data-i18n="contact_address">📍 地址：上海交通大学医学院松江研究院</p>
-                    <div style="margin-top: 30px; display: flex; gap: 12px; justify-content: center;">
-                        <button class="btn-action" onclick="openFeedbackForm()" aria-label="反馈表单" data-i18n="btn_feedback">📝 反馈/纠错</button>
-                        <button class="btn-action" onclick="copyEmail('weiwuneuro@sjtu.edu.cn')" aria-label="复制邮箱" data-i18n="btn_copy">📋 复制邮箱</button>
+                    <div class="contact-map">
+                        <div class="map-canvas">
+                            <iframe
+                                class="map-frame"
+                                title="上海市松江区中山二路621号地图"
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                src="https://www.google.com/maps?q=%E4%B8%8A%E6%B5%B7%E5%B8%82%E6%9D%BE%E6%B1%9F%E5%8C%BA%E4%B8%AD%E5%B1%B1%E4%BA%8C%E8%B7%AF621%E5%8F%B7&output=embed">
+                            </iframe>
+                        </div>
+                        <div class="map-meta">
+                            <div class="map-address" data-i18n="contact_address">📍 地址：上海市松江区中山二路621号</div>
+                            <a class="map-link" data-i18n="contact_map_open" href="https://uri.amap.com/search?keyword=%E4%B8%8A%E6%B5%B7%E5%B8%82%E6%9D%BE%E6%B1%9F%E5%8C%BA%E4%B8%AD%E5%B1%B1%E4%BA%8C%E8%B7%AF621%E5%8F%B7" target="_blank" rel="noopener noreferrer">在地图中打开</a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1094,7 +1293,7 @@
                 opt_theme: '亮色模式 / Light',
                 opt_large_text: '大字号阅读 / Large Text',
                 opt_cursor: '显示鼠标光晕 / Glow',
-                opt_hint1: '可先在这里切到亮色模式，再按需启用阅读和动效选项。',
+                opt_hint1: '',
                 opt_hint2: '页面内容更正请联系：',
                 
                 // 主页
@@ -1154,7 +1353,8 @@
                 contact_postdoc_title: '博士后招聘',
                 contact_postdoc_desc: '提供具有竞争力的薪酬待遇和国际顶尖的科研平台，欢迎具有生物医学工程、计算机科学、统计学等相关背景的博士毕业生联系。',
                 contact_info: '联系方式',
-                contact_address: '📍 地址：上海交通大学医学院松江研究院',
+                contact_address: '📍 地址：上海市松江区中山二路621号',
+                contact_map_open: '在地图中打开',
                 
                 // 成员详情
                 member_role: '岗位',
@@ -1194,7 +1394,7 @@
                 opt_theme: 'Light Mode / 亮色模式',
                 opt_large_text: 'Large Text / 大字号阅读',
                 opt_cursor: 'Show Glow / 显示鼠标光晕',
-                opt_hint1: 'You can switch to light mode here, then enable reading and animation options as needed.',
+                opt_hint1: '',
                 opt_hint2: 'For content corrections, please contact: ',
                 
                 // Homepage
@@ -1254,7 +1454,8 @@
                 contact_postdoc_title: 'Postdoctoral Recruitment',
                 contact_postdoc_desc: 'We offer competitive compensation and a world-class research platform. We welcome PhD graduates with backgrounds in biomedical engineering, computer science, statistics, and related fields to apply.',
                 contact_info: 'Contact Information',
-                contact_address: '📍 Address: SJTU School of Medicine Songjiang Research Institute',
+                contact_address: '📍 Address: No. 621 Zhongshan 2nd Road, Songjiang District, Shanghai',
+                contact_map_open: 'Open in Map',
                 
                 // Member Details
                 member_role: 'Position',
@@ -1301,9 +1502,14 @@
                 }
             });
 
-            // 更新语言选择框
-            const langSelect = document.getElementById('opt-language');
-            if (langSelect) langSelect.value = lang;
+            updateLanguageButtons();
+        }
+
+        function updateLanguageButtons() {
+            const zhBtn = document.getElementById('btn-lang-zh');
+            const enBtn = document.getElementById('btn-lang-en');
+            if (zhBtn) zhBtn.classList.toggle('active', currentLanguage === 'zh');
+            if (enBtn) enBtn.classList.toggle('active', currentLanguage === 'en');
         }
 
         // 初始化语言
@@ -1314,6 +1520,17 @@
         // === 1. 鼠标追踪缓动动画 ===
         const blob = document.getElementById('cursor-blob');
         const introCard = document.getElementById('btn-enter');
+        const SECTION_ORDER = ['home', 'prof', 'research', 'pubs', 'team', 'contact'];
+        let currentSectionId = 'home';
+        let wheelLock = false;
+        let wheelAccumulator = 0;
+        let wheelDirection = 0;
+        let wheelPeekTimer = null;
+        let wheelDeltaEMA = 40;
+        const WHEEL_MIN_THRESHOLD = 95;
+        const WHEEL_MAX_THRESHOLD = 240;
+        const WHEEL_COOLDOWN_MS = 420;
+        const EDGE_TOLERANCE = 24;
         
         let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
         let blobX = mouseX; let blobY = mouseY;
@@ -1330,11 +1547,24 @@
         });
 
         // === 2. SPA 路由与交互逻辑 ===
-        
+        function enterApp(withPulse = false) {
+            if (withPulse) {
+                document.body.classList.add('clicked');
+                setTimeout(() => {
+                    document.body.classList.add('app-active');
+                    navTo('home');
+                }, 300);
+                return;
+            }
+
+            document.body.classList.remove('clicked');
+            document.body.classList.add('app-active');
+            navTo('home');
+        }
+
         // 点击进入系统
         introCard.addEventListener('click', () => {
-            document.body.classList.add('clicked');
-            setTimeout(() => { document.body.classList.add('app-active'); navTo('home'); }, 300);
+            enterApp(true);
         });
 
         // 左上角 logo 回到唤醒页
@@ -1343,32 +1573,45 @@
             document.getElementById('content-wrapper').scrollTo(0, 0);
         }
 
+        // 默认直接进入主页；左上角 logo 仍可回到唤醒页
+        enterApp(false);
+
         // 亮色/暗色模式切换并持久化
         function updateThemeOption() {
-            const themeOpt = document.getElementById('opt-theme');
-            if (!themeOpt) return;
+            const themeBtn = document.getElementById('btn-theme-switch');
+            if (!themeBtn) return;
             const isLight = document.body.classList.contains('light-mode');
-            themeOpt.checked = isLight;
+            themeBtn.classList.toggle('is-light', isLight);
+            themeBtn.setAttribute('aria-label', isLight ? '切换到暗色模式' : '切换到亮色模式');
+            themeBtn.setAttribute('title', isLight ? '切换到暗色模式' : '切换到亮色模式');
         }
 
         function setTheme(isLight) {
             document.body.classList.toggle('light-mode', isLight);
             localStorage.setItem('site-theme', isLight ? 'light' : 'dark');
             updateThemeOption();
+
+            const themeBtn = document.getElementById('btn-theme-switch');
+            if (themeBtn) {
+                themeBtn.classList.remove('theme-anim');
+                // force reflow to replay animation
+                void themeBtn.offsetWidth;
+                themeBtn.classList.add('theme-anim');
+            }
             
             // 根据主题自动调整光圈：亮色关闭，暗色开启
             const cursorGlowOpt = document.getElementById('opt-cursor-glow');
             if (cursorGlowOpt) {
                 const shouldEnableGlow = !isLight;
                 cursorGlowOpt.checked = shouldEnableGlow;
+                cursorGlowOpt.disabled = isLight;
                 document.body.classList.toggle('hide-cursor-glow', !shouldEnableGlow);
                 localStorage.setItem('site-cursor-glow', shouldEnableGlow ? '1' : '0');
             }
         }
 
-        function onThemeOptionChange() {
-            const themeOpt = document.getElementById('opt-theme');
-            setTheme(!!themeOpt?.checked);
+        function toggleThemeByButton() {
+            setTheme(!document.body.classList.contains('light-mode'));
         }
 
         function toggleLargeText() {
@@ -1379,6 +1622,15 @@
 
         function toggleCursorGlow() {
             const opt = document.getElementById('opt-cursor-glow');
+            if (document.body.classList.contains('light-mode')) {
+                if (opt) {
+                    opt.checked = false;
+                    opt.disabled = true;
+                }
+                document.body.classList.add('hide-cursor-glow');
+                localStorage.setItem('site-cursor-glow', '0');
+                return;
+            }
             const enabled = !!opt?.checked;
             document.body.classList.toggle('hide-cursor-glow', !enabled);
             localStorage.setItem('site-cursor-glow', enabled ? '1' : '0');
@@ -1581,21 +1833,139 @@
         });
 
         // 导航切换函数
-        function navTo(sectionId) {
+        function navTo(sectionId, direction = 'none') {
+            if (!SECTION_ORDER.includes(sectionId)) return;
+            const wrapper = document.getElementById('content-wrapper');
+            if (wrapper) {
+                wrapper.style.transform = 'translateY(0)';
+            }
+
+            if (currentSectionId === sectionId && direction === 'none') {
+                document.getElementById('content-wrapper').scrollTo(0, 0);
+                return;
+            }
+
             // 1. 滚动条置顶
             document.getElementById('content-wrapper').scrollTo(0, 0);
-            
+
             // 2. 隐藏所有 section，取消所有 nav 激活状态
-            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active', 'anim-from-next', 'anim-from-prev'));
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            
+
             // 3. 激活目标 section
-            document.getElementById(sectionId).classList.add('active');
-            
+            const targetSection = document.getElementById(sectionId);
+            if (!targetSection) return;
+            if (direction === 'next') targetSection.classList.add('anim-from-next');
+            if (direction === 'prev') targetSection.classList.add('anim-from-prev');
+            targetSection.classList.add('active');
+
             // 4. 匹配导航栏高亮 (排除了首页logo的点击)
             const activeLink = Array.from(document.querySelectorAll('.nav-link')).find(link => link.getAttribute('onclick').includes(sectionId));
             if(activeLink) activeLink.classList.add('active');
+
+            currentSectionId = sectionId;
+            updateSectionDots();
+            wheelAccumulator = 0;
+            wheelDirection = 0;
         }
+
+        function updateSectionDots() {
+            document.querySelectorAll('#section-dots .section-dot').forEach(dot => {
+                const isActive = dot.getAttribute('data-section') === currentSectionId;
+                dot.classList.toggle('active', isActive);
+            });
+        }
+
+        function getAdaptiveWheelThreshold() {
+            const t = 90 + wheelDeltaEMA * 0.9;
+            return Math.max(WHEEL_MIN_THRESHOLD, Math.min(WHEEL_MAX_THRESHOLD, t));
+        }
+
+        function applyWheelPeek(direction, progress, deltaAbs) {
+            const wrapper = document.getElementById('content-wrapper');
+            if (!wrapper) return;
+
+            const normalized = Math.min(deltaAbs / 120, 1);
+            const easedProgress = 1 - Math.pow(1 - Math.min(progress, 1), 2);
+            const distance = 10 + easedProgress * 20 + normalized * 8;
+            const offset = direction > 0 ? -distance : distance;
+
+            wrapper.style.transition = 'transform 110ms cubic-bezier(0.22, 0.61, 0.36, 1)';
+            wrapper.style.transform = `translateY(${offset}px)`;
+
+            if (wheelPeekTimer) clearTimeout(wheelPeekTimer);
+            wheelPeekTimer = setTimeout(() => {
+                wrapper.style.transition = 'transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1)';
+                wrapper.style.transform = 'translateY(0)';
+            }, 80);
+        }
+
+        function tryWheelPageSwitch(deltaY) {
+            if (!document.body.classList.contains('app-active')) return false;
+            const wrapper = document.getElementById('content-wrapper');
+            if (!wrapper) return 'none';
+
+            const deltaAbs = Math.abs(deltaY);
+            wheelDeltaEMA = wheelDeltaEMA * 0.82 + deltaAbs * 0.18;
+            const adaptiveThreshold = getAdaptiveWheelThreshold();
+
+            const atTop = wrapper.scrollTop <= EDGE_TOLERANCE;
+            const atBottom = wrapper.scrollTop + wrapper.clientHeight >= wrapper.scrollHeight - EDGE_TOLERANCE;
+            const currentIndex = SECTION_ORDER.indexOf(currentSectionId);
+            const direction = deltaY > 0 ? 1 : -1;
+
+            if (direction !== wheelDirection) {
+                wheelDirection = direction;
+                wheelAccumulator = 0;
+            }
+
+            const tryingNext = direction > 0 && atBottom && currentIndex < SECTION_ORDER.length - 1;
+            const tryingPrev = direction < 0 && atTop && currentIndex > 0;
+
+            if (!tryingNext && !tryingPrev) {
+                wheelAccumulator = 0;
+                return 'none';
+            }
+
+            wheelAccumulator += deltaAbs;
+            const progress = wheelAccumulator / adaptiveThreshold;
+            if (wheelAccumulator < adaptiveThreshold) {
+                applyWheelPeek(direction, progress, deltaAbs);
+                return 'peeking';
+            }
+            wheelAccumulator = 0;
+
+            if (tryingNext) {
+                navTo(SECTION_ORDER[currentIndex + 1], 'next');
+                return 'switched';
+            }
+
+            if (tryingPrev) {
+                navTo(SECTION_ORDER[currentIndex - 1], 'prev');
+                return 'switched';
+            }
+
+            return 'none';
+        }
+
+        document.getElementById('content-wrapper')?.addEventListener('wheel', (e) => {
+            if (wheelLock) return;
+            if (Math.abs(e.deltaY) < 4) return;
+            if (document.getElementById('member-modal')?.classList.contains('show')) return;
+            if (document.getElementById('lightbox')?.classList.contains('show')) return;
+            if (document.getElementById('feedback-modal')?.classList.contains('show')) return;
+
+            const result = tryWheelPageSwitch(e.deltaY);
+            if (result === 'none') return;
+
+            e.preventDefault();
+            if (result === 'switched') {
+                wheelLock = true;
+                setTimeout(() => {
+                    wheelLock = false;
+                }, WHEEL_COOLDOWN_MS);
+            }
+        }, { passive: false });
 
         // === 3. 成员详情模态框 ===
         function showMemberDetail(card) {
