@@ -1,74 +1,75 @@
 # SJTU BCI Lab Static Site
 
-## 项目结构
+## 项目概述
 
-- `main.html`：主页面文件（GitHub Pages 默认入口）
-- `team_members.csv`：成员信息数据表
-- `*.jpg`：页面引用的本地图片资源
-- `.nojekyll`：禁用 Jekyll 处理，避免静态资源路径被干扰
+这是上海交通大学吴畏教授课题组的主页，采用纯静态 HTML 构建，适合部署在 GitHub Pages 上。页面支持中英双语切换、亮暗模式切换，并具有完全响应式设计。
 
-## 本地维护建议
+## 功能特点
 
-1. 更新成员信息时，优先修改 `team_members.csv`。
-2. 图片文件名保持与页面/CSV引用一致。
-3. 每次修改后直接打开 `main.html` 做快速检查。
+- 📱 **响应式设计**：适配多种设备，移动端友好。
+- 🌙 **亮暗模式**：支持用户切换亮色和暗色主题。
+- 🌍 **中英双语**：提供中文和英文两种语言版本。
+- ⚡ **纯前端架构**：无后端依赖，加载速度快。
+- 🎯 **SEO 优化**：语义化 HTML 提升搜索引擎友好度。
 
-## 发布到 GitHub Pages（推荐）
+## 文件结构
 
-### 1. 新建仓库
+- `index.html`：主页面文件。
+- `team_members.csv`：课题组成员信息数据表。
+- `*.jpg` 和 `*.png`：页面引用的图片资源。
+- `README.md`：项目说明文档。
 
-在 GitHub 新建一个仓库（例如：`bci-lab-site`）。
+## 部署到 GitHub Pages
+
+### 1. 创建 GitHub 仓库
+
+在 GitHub 上新建一个仓库（例如：`bci-lab-site`）。
 
 ### 2. 上传文件
 
-把当前目录下这些文件全部上传到仓库根目录：
+将以下文件上传到仓库根目录：
 
-- `main.html`
+- `index.html`
 - `team_members.csv`
-- 所有 `*.jpg`
-- `.nojekyll`
+- 所有图片资源（`*.jpg` 和 `*.png`）
 - `README.md`
 
-### 3. 开启 Pages
+### 3. 启用 GitHub Pages
 
-仓库页面进入：
+进入仓库页面：`Settings` → `Pages`
 
-`Settings` -> `Pages`
+配置如下：
+- **Source**: `Deploy from a branch`
+- **Branch**: `main`
+- **Folder**: `/ (root)`
 
-设置：
-
-- Source: `Deploy from a branch`
-- Branch: `main`
-- Folder: `/ (root)`
-
-保存后等待 1-3 分钟，GitHub 会生成一个网址：
+保存后，GitHub 会在 1-3 分钟内生成访问地址：
 
 `https://<你的用户名>.github.io/<仓库名>/`
 
 ### 4. 验证上线
 
 检查以下内容：
-
-- 首页可正常加载
-- 图库图片可打开
-- 成员区能显示数据
-- 中英切换和明暗模式可用
-
-## 可选：命令行一次性推送
-
-如果你本地已经安装了 Git：
-
-```powershell
-git init
-git add .
-git commit -m "Initial static site deployment"
-git branch -M main
-git remote add origin https://github.com/<你的用户名>/<仓库名>.git
-git push -u origin main
-```
+- 首页是否正常加载。
+- 图片是否显示正确。
+- 成员信息是否加载成功。
+- 中英切换和亮暗模式是否可用。
 
 ## 常见问题
 
-1. 页面空白：确认 `main.html` 在仓库根目录。
-2. 图片不显示：确认文件名（含中文和空格）与引用完全一致。
-3. 访问 404：确认 GitHub Pages 已开启并等待几分钟生效。
+| 问题 | 解决方案 |
+|------|--------|
+| 页面空白 | 确认 `index.html` 在仓库根目录。 |
+| 图片不显示 | 检查文件名（包括中文、空格）与页面引用是否一致。 |
+| 访问 404 | 确认 GitHub Pages 已启用，并等待生效（通常 1-3 分钟）。 |
+| 成员无法加载 | 检查 `team_members.csv` 是否存在且格式正确。 |
+
+## 维护建议
+
+- **更新成员信息**：修改 `team_members.csv` 文件。
+- **保持文件一致**：确保图片文件名与页面引用一致。
+- **快速检查**：直接在浏览器中打开 `index.html` 进行预览。
+
+---
+
+如有问题，请联系：`weiwuneuro@sjtu.edu.cn`
