@@ -475,8 +475,9 @@
         }
 
         /* 4. 图片图库网格 */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
-        .gallery-item { aspect-ratio: 16/9; background: rgba(255,255,255,0.05); border-radius: 10px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--text-sub); transition: 0.3s; cursor: pointer; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(16, 325px); gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 0px; scrollbar-width: none; }
+        .gallery-grid::-webkit-scrollbar { display: none; }
+        .gallery-item { aspect-ratio: 16/9; background: rgba(255,255,255,0.05); border-radius: 10px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--text-sub); transition: 0.3s; cursor: pointer; min-width: 325px; flex-shrink: 0; }
         .gallery-item:hover { transform: scale(1.05); border-color: var(--primary-glow); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 9px; }
         .team-group { margin-top: 30px; }
@@ -762,18 +763,24 @@
         .lightbox-image-container {
             position: relative;
             width: 90%;
-            max-width: 900px;
+            max-width: 90vw;
             max-height: 85vh;
             background: var(--bg-color);
             border-radius: 16px;
-            overflow: hidden;
+            overflow: auto;
             animation: slideUp 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
         .lightbox-image-container img {
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
             display: block;
+            width: auto;
+            height: auto;
         }
         .lightbox-image-container .lightbox-placeholder {
             width: 100%;
@@ -807,15 +814,21 @@
             border-color: white;
         }
         .lightbox-title {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
             color: white;
-            padding: 20px;
-            font-size: calc(1.2rem * var(--font-scale));
+            padding: 15px 25px;
+            font-size: calc(1.1rem * var(--font-scale));
             text-align: center;
+            border-radius: 8px;
+            max-width: 80vw;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            z-index: 601;
         }
 
         /* === 反馈表单 === */
@@ -970,6 +983,133 @@
             line-height: 1.8;
             font-size: calc(0.98rem * var(--font-scale));
         }
+        .pub-cover-row {
+            display: grid;
+            grid-template-columns: repeat(7, 180px);
+            gap: 14px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            padding-bottom: 8px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 229, 255, 0.3) rgba(255,255,255,0.05);
+        }
+        .pub-cover-row::-webkit-scrollbar {
+            height: 6px;
+        }
+        .pub-cover-row::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+            border-radius: 3px;
+        }
+        .pub-cover-row::-webkit-scrollbar-thumb {
+            background: rgba(0, 229, 255, 0.3);
+            border-radius: 3px;
+        }
+        .pub-cover-row::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 229, 255, 0.6);
+        }
+        .pub-cover-card {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .pub-cover-frame {
+            position: relative;
+            aspect-ratio: 3 / 4;
+            border-radius: 14px;
+            overflow: hidden;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+        }
+        .pub-cover-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .pub-cover-placeholder {
+            position: absolute;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 12px;
+            color: var(--text-soft);
+            font-size: calc(0.86rem * var(--font-scale));
+            letter-spacing: 0.5px;
+        }
+
+        .recruitment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .recruitment-ad {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255,255,255,0.04);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+        }
+        .recruitment-ad:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-glow);
+            box-shadow: 0 16px 30px rgba(0,0,0,0.18);
+            background: rgba(255,255,255,0.06);
+        }
+        .recruitment-ad-media {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: linear-gradient(135deg, rgba(36,110,176,0.22), rgba(36,110,176,0.08));
+        }
+        .recruitment-ad-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .recruitment-ad-placeholder {
+            position: absolute;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-soft);
+            font-size: calc(0.95rem * var(--font-scale));
+            letter-spacing: 1px;
+        }
+        .recruitment-ad-copy {
+            display: grid;
+            gap: 6px;
+        }
+        .recruitment-ad-copy h5 {
+            margin: 0;
+            color: var(--text-main);
+            font-size: calc(1rem * var(--font-scale));
+            font-weight: 500;
+        }
+        .recruitment-ad-copy p {
+            margin: 0;
+            color: var(--text-sub);
+            line-height: 1.75;
+            font-size: calc(0.92rem * var(--font-scale));
+        }
+        .recruitment-ad-copy span {
+            color: var(--neon-border);
+            font-size: calc(0.84rem * var(--font-scale));
+            font-weight: 500;
+        }
 
         body.light-mode header,
         body.light-mode .glass-panel,
@@ -1001,7 +1141,9 @@
             .hero-title { font-size: calc(2.2rem * var(--font-scale)); }
             .media-block { grid-template-columns: 1fr; }
             .media-image { min-height: 170px; }
-            .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+            .pub-cover-row { grid-template-columns: repeat(4, 150px); }
+            .recruitment-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 325px); gap: 14px; }
             .member-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
         }
 
@@ -1009,6 +1151,7 @@
             .intro-card { padding: 32px 20px; width: calc(100% - 32px); }
             .intro-card h1 { font-size: calc(2rem * var(--font-scale)); letter-spacing: 1.5px; }
             .intro-card p { font-size: calc(1rem * var(--font-scale)); letter-spacing: 1px; }
+            .pub-cover-row { grid-template-columns: repeat(2, 120px); gap: 12px; overflow-x: auto; }
             .logo { font-size: calc(1.1rem * var(--font-scale)); }
             .nav-link { font-size: calc(0.92rem * var(--font-scale)); }
             .btn-home, .btn-menu { font-size: calc(0.9rem * var(--font-scale)); }
@@ -1017,10 +1160,11 @@
             .options-panel { width: min(94vw, 260px); right: 0; }
             .section-title { font-size: calc(1.5rem * var(--font-scale)); }
             .prof-avatar { width: 180px; }
-            .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-            .gallery-item { aspect-ratio: 1 / 1; }
+            .gallery-grid { grid-template-columns: repeat(2, 250px); gap: 10px; }
+            .gallery-item { aspect-ratio: 1 / 1; min-width: 250px; }
             .member-grid { grid-template-columns: repeat(2, minmax(130px, 1fr)); gap: 10px; }
             .member-card { padding: 8px; }
+            .pub-cover-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
             .media-image { min-height: 130px; }
             #section-dots { display: none; }
         }
@@ -1189,7 +1333,7 @@
             
             <section id="home" class="page-section active">
                 <div class="glass-panel" style="border:none; box-shadow:none; background:transparent; padding:0;">
-                    <h1 class="hero-title"><span class="hero-light" data-i18n="hero_title">AI驱动的</span> <span class="hero-bold" data-i18n="hero_highlight">脑疾病诊疗</span><span class="hero-normal" data-i18n="hero_subtitle1"> 与信号处理平台</span></h1>
+                    <h1 class="hero-title"><span class="hero-light" data-i18n="hero_title">AI驱动的</span> <span class="hero-bold" data-i18n="hero_highlight">脑疾病诊疗</span><span class="hero-normal" data-i18n="hero_subtitle1"> 与信号处理</span></h1>
                     <svg class="hero-eeg-wave" viewBox="0 0 600 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 30 Q25 10 50 30 T100 30 T150 30 T200 30 T250 30 T300 30 T350 30 T400 30 T450 30 T500 30 T550 30 T600 30" fill="none" stroke="var(--neon-border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"></path></svg>
                     <p class="hero-subtitle" data-i18n="hero_subtitle2">我们致力于开发高级神经信号处理算法与机器学习模型，探索精神疾病的精准诊疗生物标志物，推动脑机接口系统与临床医学的深度转化与融合。</p>
                     <p class="hero-subtitle" style="margin-top:16px;">
@@ -1237,17 +1381,17 @@
                     <div class="info-list">
                         <h4 data-i18n="prof_education">教育经历</h4>
                         <ul>
-                            <li>2006-2012年 清华大学生物医学工程系，博士(麻省理工学院联合培养)</li>
-                            <li>2003-2006 年 清华大学生物医学工程系，硕士</li>
-                            <li>1999-2003 年 南京邮电大学信息工程系，学士</li>
+                            <li data-i18n="prof_education_item1">2006-2012年 清华大学生物医学工程系，博士(麻省理工学院联合培养)</li>
+                            <li data-i18n="prof_education_item2">2003-2006 年 清华大学生物医学工程系，硕士</li>
+                            <li data-i18n="prof_education_item3">1999-2003 年 南京邮电大学信息工程系，学士</li>
                         </ul>
                     </div>
                     <div class="info-list" style="margin-top: 40px;">
                         <h4 data-i18n="prof_work">工作经历</h4>
                         <ul>
-                            <li>2024年-至今 上海交通大学医学院松江研究院，特聘教授、资深研究员</li>
-                            <li>2020-2024年  美国Alto Neuroscience公司(纽交所上市) ,联合创始人、首席数据科学官</li>
-                            <li>2012-2019 年 华南理工大学自动化科学与工程学院，副教授、教授</li>
+                            <li data-i18n="prof_work_item1">2024年-至今 上海交通大学医学院松江研究院，特聘教授、资深研究员</li>
+                            <li data-i18n="prof_work_item2">2020-2024年 美国Alto Neuroscience公司(纽交所上市)，联合创始人、首席数据科学官</li>
+                            <li data-i18n="prof_work_item3">2012-2019 年 华南理工大学自动化科学与工程学院，副教授、教授</li>
                         </ul>
                     </div>
                     <div class="info-list" style="margin-top: 40px;">
@@ -1285,11 +1429,48 @@
             <section id="pubs" class="page-section">
                 <div class="glass-panel">
                     <h2 class="section-title" data-i18n="pubs_title">代表性学术成果</h2>
-                    <div class="media-block" style="margin-bottom: 18px;">
-                        <div class="media-image">成果配图位<br>（论文封面 / 媒体报道）</div>
-                        <div class="media-content">
-                            <h4>展示建议</h4>
-                            <p>左侧放代表性配图，右侧保留论文列表与链接即可。</p>
+                    <div class="pub-cover-row">
+                        <div class="pub-cover-card">
+                            <div class="pub-cover-frame">
+                                <img src="文章封面图1.jpg" alt="文章封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="pub-cover-placeholder">文章封面图1</div>
+                            </div>
+                        </div>
+                        <div class="pub-cover-card">
+                            <div class="pub-cover-frame">
+                                <img src="文章封面图2.jpg" alt="文章封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="pub-cover-placeholder">文章封面图2</div>
+                            </div>
+                        </div>
+                        <div class="pub-cover-card">
+                            <div class="pub-cover-frame">
+                                <img src="文章封面图3.jpg" alt="文章封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="pub-cover-placeholder">文章封面图3</div>
+                            </div>
+                        </div>
+                        <div class="pub-cover-card">
+                            <div class="pub-cover-frame">
+                                <img src="文章封面图4.jpg" alt="文章封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="pub-cover-placeholder">文章封面图4</div>
+                            </div>
+                        </div>
+                        <div class="pub-cover-card">
+                            <div class="pub-cover-frame">
+                                <img src="文章封面图5.jpg" alt="文章封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="pub-cover-placeholder">文章封面图5</div>
+                            </div>
+                        </div>
+                        <div class="pub-cover-card">
+                            <div class="pub-cover-frame">
+                                <img src="文章封面图6.jpg" alt="文章封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="pub-cover-placeholder">文章封面图6</div>
+                            </div>
+                        </div>
+                        <div class="pub-cover-card">
+                            <div class="pub-cover-frame">
+                                <img src="文章封面图7.jpg" alt="文章封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="pub-cover-placeholder">文章封面图7</div>
+                            </div>
                         </div>
                     </div>
                     <ul class="pub-list">
@@ -1361,6 +1542,14 @@
                         <div class="gallery-item lightbox-trigger" data-lightbox-title="莫干山团建" data-lightbox-image="课题组合照 莫干山团建.jpg"><img src="课题组合照 莫干山团建.jpg" alt="莫干山团建"></div>
                         <div class="gallery-item lightbox-trigger" data-lightbox-title="课题组聚餐" data-lightbox-image="课题组合照 课题组聚餐.jpg"><img src="课题组合照 课题组聚餐.jpg" alt="课题组聚餐"></div>
                         <div class="gallery-item lightbox-trigger" data-lightbox-title="采集脑电" data-lightbox-image="课题组合照 采集脑电.jpg"><img src="课题组合照 采集脑电.jpg" alt="采集脑电"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="奉贤会议" data-lightbox-image="课题组合照 奉贤会议.jpg"><img src="课题组合照 奉贤会议.jpg" alt="奉贤会议"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="徐汇校区" data-lightbox-image="课题组合照 徐汇校区.jpg"><img src="课题组合照 徐汇校区.jpg" alt="徐汇校区"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="新年合照" data-lightbox-image="课题组合照 新年合照.jpg"><img src="课题组合照 新年合照.jpg" alt="新年合照"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="智能神经调控与脑机接口峰会" data-lightbox-image="课题组合照 智能神经调控与脑机接口峰会.jpg"><img src="课题组合照 智能神经调控与脑机接口峰会.jpg" alt="智能神经调控与脑机接口峰会"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="特别的生日" data-lightbox-image="课题组合照 特别的生日.jpg"><img src="课题组合照 特别的生日.jpg" alt="特别的生日"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="莫干山团建" data-lightbox-image="课题组合照 莫干山团建.jpg"><img src="课题组合照 莫干山团建.jpg" alt="莫干山团建"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="课题组聚餐" data-lightbox-image="课题组合照 课题组聚餐.jpg"><img src="课题组合照 课题组聚餐.jpg" alt="课题组聚餐"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="采集脑电" data-lightbox-image="课题组合照 采集脑电.jpg"><img src="课题组合照 采集脑电.jpg" alt="采集脑电"></div>
                     </div>
                 </div>
 
@@ -1369,7 +1558,25 @@
                     <div id="team-members-container"></div>
                 </div>
 
-                <script id="team-members-csv-b64" type="text/plain">cm9sZSxuYW1lLGRpc3BsYXlfbmFtZSxlbWFpbCxkaXJlY3Rpb24scGhvdG8NCr/G0dDW+sDtLLmo4vnaUyy5qOL52lMsYXNzaXN0YW50LmFAc2p0dS5lZHUuY24sLA0Kv8bR0Nb6wO0ss8KwotSyLLPCsKLUsixhc3Npc3RhbnQuYkBzanR1LmVkdS5jbiwsDQq/xtHQ1vrA7SzButHgLMG60eAsYXNzaXN0YW50LmNAc2p0dS5lZHUuY24sY1RCUywNCrKpyr+68yzN9c7EwfoszfXOxMH6LHBvc3Rkb2MuMUBzanR1LmVkdS5jbiwsDQqyqcq/uvMswfW99SzB9b31LHBvc3Rkb2MuMkBzanR1LmVkdS5jbiwsDQqyqcq/uvMswfXT7izB9dPuLHBvc3Rkb2MuM0BzanR1LmVkdS5jbixNUkksDQqyqcq/yfos1rK669LjLNayuuvS4yxwaGQueEBzanR1LmVkdS5jbiwsDQqyqcq/yfoswfW/offrLMH1v6H36yxwaGQueUBzanR1LmVkdS5jbiwsDQqyqcq/yfos0e7s4izR7uziLHBoZC56QHNqdHUuZWR1LmNuLLv509rHv7uv0afPsLXEuvTO/Lv6LA0K1rGyqcn6LNbsy7zSxyzW7Mu80scsZGlyZWN0LXBoZC5xQHNqdHUuZWR1LmNuLGNUQlMsDQrLtsq/yfos0O3Swea1LNDt0sHmtSxtYXN0ZXIubTNAc2p0dS5lZHUuY24suN/Oo8jLyLrXqruvLA0Ky7bKv8n6LPHjy7zUtCzx48u81LQsbWFzdGVyLm00QHNqdHUuZWR1LmNuLE1TQSB2cyBQRCwNCsu2yr/J+izQ7MDZLNDswNksbWFzdGVyLm0yQHNqdHUuZWR1LmNuLNfUsdXWosn6zu+x6ta+zu/N2r7yLA0Ky7bKv8n6LLzWtsW98Cy81rbFvfAsZGpfamlhQHNqdHUuZWR1LmNuLEFTRKGi0qnO78HG0KfJ+s7vseq8x87vzdq+8qGixNS158n6zu+x6rzHzu+4qNb60MLSqb+qt6Isy7bKv8n6ILzWtsW98C5qcGcNCg==</script>
+                <script id="team-members-csv-b64" type="text/plain">role,name,display_name,email,direction,photo
+科研助理,龚怡赟,龚怡赟,assistant.a@sjtu.edu.cn,,
+科研助理,梁燕,梁燕,assistant.b@sjtu.edu.cn,,
+科研助理,陈阿园,陈阿园,assistant.c@sjtu.edu.cn,cTBS,
+博士后,王文龙,王文龙,postdoc.1@sjtu.edu.cn,,
+博士后,刘锦,刘锦,postdoc.2@sjtu.edu.cn,,
+博士后,刘宇,刘宇,postdoc.3@sjtu.edu.cn,MRI,
+博士生,植弘毅,植弘毅,phd.x@sjtu.edu.cn,,
+博士生,杨焘,杨焘,phd.y@sjtu.edu.cn,,
+博士生,刘俊麟,刘俊麟,phd.z@sjtu.edu.cn,脑电与强化学习的结合,
+直博生,朱思仪,朱思仪,direct-phd.q@sjtu.edu.cn,cTBS,
+硕士生,贾杜金,贾杜金,master.m3@sjtu.edu.cn,高危群体转化,
+硕士生,许伊娴,许伊娴,master.m4@sjtu.edu.cn,MSA vs PD,
+硕士生,胥思源,胥思源,master.m2@sjtu.edu.cn,自闭症候选基因发掘,
+硕士生,徐蕾,徐蕾,dj_jia@sjtu.edu.cn,ASD药效相关功能连接特征的选择性增强,
+本科生,宋佳怡,宋佳怡,undergrad.sjy@sjtu.edu.cn,,
+本科生,赵浙涵,赵浙涵,undergrad.2@sjtu.edu.cn,,
+本科生,王东东,王东东,undergrad.3@sjtu.edu.cn,,
+本科生,庄晓曦,庄晓曦,undergrad.4@sjtu.edu.cn,,</script>
             </section>
 
             <section id="contact" class="page-section">
@@ -1381,6 +1588,33 @@
                     <div class="info-list">
                         <h4 data-i18n="contact_postdoc_title">博士后招聘</h4>
                         <p style="color:var(--text-sub);" data-i18n="contact_postdoc_desc">提供具有竞争力的薪酬待遇和国际顶尖的科研平台，欢迎具有生物医学工程、计算机科学、统计学等相关背景的博士毕业生联系。</p>
+                    </div>
+                    <div class="info-list" style="margin-top: 34px;">
+                        <h4 data-i18n="contact_ads_title">招聘广告位</h4>
+                        <div class="recruitment-grid">
+                            <a class="recruitment-ad" href="https://www.shsmu.edu.cn/sri/info/1057/2554.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="recruitment-ad-media">
+                                    <img src="广告位图1.png" alt="副研究员/博士后/科研助理招聘">
+                                    <div class="recruitment-ad-placeholder" style="display:none;">松江研究院</div>
+                                </div>
+                                <div class="recruitment-ad-copy">
+                                    <h5>副研究员 / 博士后 / 科研助理 招聘启事</h5>
+                                    <p>上海交通大学医学院松江研究院吴畏课题组长期招聘。研究方向：精神疾病精准诊疗、脑信号处理、机器学习。</p>
+                                    <span>查看详情 →</span>
+                                </div>
+                            </a>
+                            <a class="recruitment-ad" href="https://mp.weixin.qq.com/s/fErtBUinP5sOYSu1of7j3Q" target="_blank" rel="noopener noreferrer">
+                                <div class="recruitment-ad-media">
+                                    <img src="广告位图2.png" alt="博士后专项招聘">
+                                    <div class="recruitment-ad-placeholder" style="display:none;">博士后招聘</div>
+                                </div>
+                                <div class="recruitment-ad-copy">
+                                    <h5>博士后 专项招聘启事</h5>
+                                    <p>具有生物医学工程、人工智能、神经科学等背景。研究方向：脑信号解码算法、精神疾病脑环路生物标记物。</p>
+                                    <span>查看详情 →</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="glass-panel" style="text-align: center;">
@@ -1437,7 +1671,7 @@
                 // 主页
                 hero_title: 'AI驱动的 ',
                 hero_highlight: '脑疾病诊疗',
-                hero_subtitle1: ' 与信号处理平台',
+                hero_subtitle1: ' 与信号处理',
                 hero_subtitle2: '我们致力于开发高级神经信号处理算法与机器学习模型，探索精神疾病的精准诊疗生物标志物，推动脑机接口系统与临床医学的深度转化与融合。',
                 hero_intro: '吴畏，上海交通大学特聘教授，资深研究员，国家海外高层次人才',
                 hero_email: '邮箱:',
@@ -1472,9 +1706,9 @@
                 
                 // 论文页面
                 pubs_title: '代表性学术成果',
-                pubs_image_title: '成果配图位',
+                pubs_image_title: '成果封面预留',
                 pubs_image_subtitle: '（论文封面 / 媒体报道）',
-                pubs_image_hint: '左侧放代表性配图，右侧保留论文列表与链接即可。',
+                pubs_image_hint: '第一行预留 4 张论文封面图，后面继续保留论文列表与外链。你把封面文件放进同一文件夹并保持命名一致即可自动显示。',
                 
                 // 团队成员
                 team_activity: '集体活动',
@@ -1484,6 +1718,20 @@
                 team_phd: '博士生（3）',
                 team_direct: '直博生（1）',
                 team_master: '硕士生（4）',
+                team_undergraduate: '本科生（4）',
+
+                prof_education_item1: '2006-2012年 清华大学生物医学工程系，博士(麻省理工学院联合培养)',
+                prof_education_item2: '2003-2006 年 清华大学生物医学工程系，硕士',
+                prof_education_item3: '1999-2003 年 南京邮电大学信息工程系，学士',
+                prof_work_item1: '2024年-至今 上海交通大学医学院松江研究院，特聘教授、资深研究员',
+                prof_work_item2: '2020-2024年 美国Alto Neuroscience公司(纽交所上市)，联合创始人、首席数据科学官',
+                prof_work_item3: '2012-2019 年 华南理工大学自动化科学与工程学院，副教授、教授',
+                contact_ads_title: '招聘信息',
+                contact_ads_slot1: '副研究员/博士后/科研助理',
+                contact_ads_slot2: '博士后招聘启事',
+                contact_ads_desc1: '松江研究院吴畏课题组长期招聘副研究员、博士后、科研助理，研究方向涵盖精神疾病诊疗、脑信号处理与机器学习。欢迎相关背景的研究者联系。',
+                contact_ads_desc2: '招聘具有博士学位的博士后，需具有生物医学工程、人工智能、神经科学等背景。提供竞争力薪酬与顶尖科研平台。',
+                contact_ads_link: '查看详情',
                 
                 // 联系页面
                 contact_join: '加入我们 (Join Us)',
@@ -1538,7 +1786,7 @@
                 // Homepage
                 hero_title: 'AI-Driven ',
                 hero_highlight: 'Brain Disease Diagnosis & Treatment',
-                hero_subtitle1: ' and Signal Processing Platform',
+                hero_subtitle1: ' and Signal Processing',
                 hero_subtitle2: 'We are committed to developing advanced neural signal processing algorithms and machine learning models to discover precise diagnostic biomarkers for psychiatric disorders and promote deep integration of brain-computer interface systems with clinical medicine.',
                 hero_intro: 'Prof. Wei Wu, Distinguished Professor at Shanghai Jiao Tong University, Senior Researcher, National High-level Talent Program',
                 hero_email: 'Email: ',
@@ -1575,7 +1823,7 @@
                 pubs_title: 'Representative Research Outcomes',
                 pubs_image_title: 'Research Overview Visual',
                 pubs_image_subtitle: '(Journal covers / Media reports)',
-                pubs_image_hint: 'Replace left side with representative journal covers, news screenshots or clinical translation flowcharts; maintain publication list and links on right side to create an integrated "visual + evidence" showcase.',
+                pubs_image_hint: 'The first row is reserved for four paper covers; the publication list and links remain below. Place the cover files in the same folder and keep the filenames consistent to load them automatically.',
                 
                 // Team Members
                 team_activity: 'Group Activities',
@@ -1585,6 +1833,20 @@
                 team_phd: 'PhD Students (3)',
                 team_direct: 'Direct PhD (1)',
                 team_master: 'Master Students (4)',
+                team_undergraduate: 'Undergraduate Students (4)',
+
+                prof_education_item1: '2006-2012, Department of Biomedical Engineering, Tsinghua University, PhD (joint training with MIT)',
+                prof_education_item2: '2003-2006, Department of Biomedical Engineering, Tsinghua University, Master’s degree',
+                prof_education_item3: '1999-2003, Department of Information Engineering, Nanjing University of Posts and Telecommunications, Bachelor’s degree',
+                prof_work_item1: '2024-present, Songjiang Research Institute, Shanghai Jiao Tong University School of Medicine, Distinguished Professor and Senior Researcher',
+                prof_work_item2: '2020-2024, Alto Neuroscience, Inc. (NYSE-listed), Co-founder and Chief Data Scientist',
+                prof_work_item3: '2012-2019, School of Automation Science and Engineering, South China University of Technology, Associate Professor / Professor',
+                contact_ads_title: 'Recruitment Ad Slots',
+                contact_ads_slot1: 'Recruitment Ad Slot 1',
+                contact_ads_slot2: 'Recruitment Ad Slot 2',
+                contact_ads_desc1: 'This slot is reserved for an external recruitment ad and can later be replaced with a real link.',
+                contact_ads_desc2: 'This second slot is reserved for another recruitment ad and can later point to a different site.',
+                contact_ads_link: 'View link',
                 
                 // Contact Page
                 contact_join: 'Join Us',
@@ -1811,10 +2073,14 @@
         }
 
         function loadEmbeddedTeamMembersCSV() {
-            const source = document.getElementById('team-members-csv-b64')?.textContent?.replace(/\s+/g, '') || '';
+            const source = document.getElementById('team-members-csv-b64')?.textContent?.trim() || '';
             if (!source) return Promise.reject(new Error('No embedded team CSV'));
 
-            const binary = atob(source);
+            if (source.startsWith('role,name,display_name,email,direction,photo')) {
+                return Promise.resolve(source);
+            }
+
+            const binary = atob(source.replace(/\s+/g, ''));
             const bytes = new Uint8Array(binary.length);
             for (let i = 0; i < binary.length; i += 1) {
                 bytes[i] = binary.charCodeAt(i);
@@ -1870,13 +2136,14 @@
                 return;
             }
 
-            const roleOrder = ['科研助理', '博士后', '博士生', '直博生', '硕士生'];
+            const roleOrder = ['科研助理', '博士后', '博士生', '直博生', '硕士生', '本科生'];
             const roleLabels = {
                 '科研助理': 'team_assistant',
                 '博士后': 'team_postdoc',
                 '博士生': 'team_phd',
                 '直博生': 'team_direct',
-                '硕士生': 'team_master'
+                '硕士生': 'team_master',
+                '本科生': 'team_undergraduate'
             };
 
             const grouped = {};
@@ -1896,8 +2163,8 @@
                 groupMembers.forEach(member => {
                     const photoPath = resolveMemberPhotoPath(member);
                     const photoHtml = photoPath
-                        ? `<img src="${photoPath}" alt="${member.name}">`
-                        : '待放照片';
+                        ? `<img src="${photoPath}" alt="${member.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="member-photo-placeholder" style="display:none;">待放照片</div>`
+                        : '<div class="member-photo-placeholder">待放照片</div>';
                     html += `<div class="member-card" onclick="showMemberDetail(this)" data-name="${member.name}" data-role="${member.role}" data-email="${member.email}" data-direction="${member.direction}" data-photo="${photoPath}">
                         <div class="member-photo">${photoHtml}</div>
                         <div class="member-role">${member.display_name}</div>
@@ -2207,6 +2474,41 @@
                 closeLightbox();
             }
         });
+
+        // 团队建设照片轮播（鼠标悬停时暂停滚动，无缝循环）
+        const galleryGrid = document.querySelector('.gallery-grid');
+        if (galleryGrid) {
+            let autoScrollTimer = null;
+            const scrollSpeed = 2; // 每次滚动2px
+            const scrollInterval = 30; // 每30ms滚动一次
+            const oneGroupWidth = 8 * 325; // 一组8张照片的总宽度（8 * 325px）
+            
+            function startAutoScroll() {
+                if (autoScrollTimer) return;
+                autoScrollTimer = setInterval(() => {
+                    galleryGrid.scrollLeft += scrollSpeed;
+                    // 无缝循环：当滚动到第一组结束时，重置回0
+                    if (galleryGrid.scrollLeft >= oneGroupWidth) {
+                        galleryGrid.scrollLeft = 0;
+                    }
+                }, scrollInterval);
+            }
+            
+            function stopAutoScroll() {
+                if (autoScrollTimer) {
+                    clearInterval(autoScrollTimer);
+                    autoScrollTimer = null;
+                }
+            }
+            
+            // 鼠标进入停止滚动
+            galleryGrid.addEventListener('mouseenter', stopAutoScroll);
+            // 鼠标离开继续滚动
+            galleryGrid.addEventListener('mouseleave', startAutoScroll);
+            
+            // 页面加载后开始自动滚动
+            startAutoScroll();
+        }
 
         // 为所有图库项绑定灯箱事件
         document.querySelectorAll('.lightbox-trigger').forEach(item => {
