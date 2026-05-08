@@ -417,7 +417,7 @@
         .hero-title .hero-bold { font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(120deg, var(--neon-border) 0%, rgba(30, 122, 180, 0.9) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero-title .hero-normal { font-weight: 400; }
         .hero-eeg-wave { width: 100%; height: 60px; margin: 20px 0; opacity: 0.4; }
-        .hero-subtitle { font-size: calc(1.35rem * var(--font-scale)); color: var(--text-sub); line-height: 1.8; max-width: 800px; }
+        .hero-subtitle { font-size: calc(1.6rem * var(--font-scale)); color: var(--text-sub); line-height: 1.8; max-width: 900px; }
         .home-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
         .home-card { text-align: center; padding: 30px; cursor: pointer; }
         .home-card h3 { color: var(--neon-border); font-weight: 400; font-size: calc(1.15rem * var(--font-scale)); }
@@ -985,7 +985,7 @@
         }
         .pub-cover-row {
             display: grid;
-            grid-template-columns: repeat(28, 180px);
+            grid-template-columns: repeat(49, 180px);
             gap: 14px;
             overflow-x: auto;
             overflow-y: hidden;
@@ -1129,7 +1129,7 @@
             .hero-title { font-size: calc(2.2rem * var(--font-scale)); }
             .media-block { grid-template-columns: 1fr; }
             .media-image { min-height: 170px; }
-            .pub-cover-row { grid-template-columns: repeat(4, 150px); }
+            .pub-cover-row { grid-template-columns: repeat(49, 180px); }
             .recruitment-grid { grid-template-columns: 1fr; }
             .gallery-grid { grid-template-columns: repeat(2, 325px); gap: 14px; }
             .member-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
@@ -1139,7 +1139,7 @@
             .intro-card { padding: 32px 20px; width: calc(100% - 32px); }
             .intro-card h1 { font-size: calc(2rem * var(--font-scale)); letter-spacing: 1.5px; }
             .intro-card p { font-size: calc(1rem * var(--font-scale)); letter-spacing: 1px; }
-            .pub-cover-row { grid-template-columns: repeat(2, 120px); gap: 12px; overflow-x: auto; }
+            .pub-cover-row { grid-template-columns: repeat(49, 180px); gap: 14px; overflow-x: auto; }
             .logo { font-size: calc(1.1rem * var(--font-scale)); }
             .nav-link { font-size: calc(0.92rem * var(--font-scale)); }
             .btn-home, .btn-menu { font-size: calc(0.9rem * var(--font-scale)); }
@@ -1152,7 +1152,6 @@
             .gallery-item { aspect-ratio: 1 / 1; min-width: 250px; }
             .member-grid { grid-template-columns: repeat(2, minmax(130px, 1fr)); gap: 10px; }
             .member-card { padding: 8px; }
-            .pub-cover-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
             .media-image { min-height: 130px; }
             #section-dots { display: none; }
         }
@@ -1323,7 +1322,7 @@
                 <div class="glass-panel" style="border:none; box-shadow:none; background:transparent; padding:0;">
                     <h1 class="hero-title"><span class="hero-light" data-i18n="hero_title">AI驱动的</span> <span class="hero-bold" data-i18n="hero_highlight">脑疾病精准诊疗</span></h1>
                     <svg class="hero-eeg-wave" viewBox="0 0 600 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 30 Q25 10 50 30 T100 30 T150 30 T200 30 T250 30 T300 30 T350 30 T400 30 T450 30 T500 30 T550 30 T600 30" fill="none" stroke="var(--neon-border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"></path></svg>
-                    <p class="hero-subtitle" data-i18n="hero_subtitle2" style="font-size: 1.3rem; font-weight: 500; color: var(--primary-glow); margin-top: 24px; margin-bottom: 48px;">愿景：推动脑疾病诊疗迈入精准医学时代</p>
+                    <p class="hero-subtitle" data-i18n="hero_subtitle2" style="font-size: 2rem; font-weight: 700; color: var(--primary-glow); margin-top: 24px; margin-bottom: 48px; letter-spacing: 0.6px; text-shadow: 0 6px 18px rgba(0,229,255,0.12);">愿景：推动脑疾病诊疗迈入精准医学时代</p>
                     <p class="hero-subtitle" style="margin-top: 0px;">
                         <span data-i18n="hero_intro">吴畏，上海交通大学特聘教授，资深研究员，国家海外高层次人才</span><br>
                         <span data-i18n="hero_email">邮箱:</span> weiwuneuro@sjtu.edu.cn<br>
@@ -1390,34 +1389,55 @@
                 <div class="glass-panel">
                     <h2 class="section-title" data-i18n="pubs_title">代表性学术成果</h2>
                     <div class="pub-cover-row">
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图1.jpg" alt="文章封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图1</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图2.jpg" alt="文章封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图2</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图3.jpg" alt="文章封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图3</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图4.jpg" alt="文章封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图4</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图5.jpg" alt="文章封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图5</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图6.jpg" alt="文章封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图6</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图7.jpg" alt="文章封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图7</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图1.jpg" alt="文章封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图1</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图2.jpg" alt="文章封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图2</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图3.jpg" alt="文章封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图3</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图4.jpg" alt="文章封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图4</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图5.jpg" alt="文章封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图5</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图6.jpg" alt="文章封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图6</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图7.jpg" alt="文章封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图7</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图1.jpg" alt="文章封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图1</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图2.jpg" alt="文章封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图2</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图3.jpg" alt="文章封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图3</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图4.jpg" alt="文章封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图4</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图5.jpg" alt="文章封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图5</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图6.jpg" alt="文章封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图6</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图7.jpg" alt="文章封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图7</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图1.jpg" alt="文章封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图1</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图2.jpg" alt="文章封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图2</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图3.jpg" alt="文章封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图3</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图4.jpg" alt="文章封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图4</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图5.jpg" alt="文章封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图5</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图6.jpg" alt="文章封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图6</div></div></div>
-                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图7.jpg" alt="文章封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图7</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图1.png" alt="杂志封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图1</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图2.png" alt="杂志封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图2</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图3.png" alt="杂志封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图3</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图4.png" alt="杂志封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图4</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图5.png" alt="杂志封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图5</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图6.png" alt="杂志封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图6</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图7.png" alt="杂志封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图7</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图1.png" alt="杂志封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图1</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图2.png" alt="杂志封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图2</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图3.png" alt="杂志封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图3</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图4.png" alt="杂志封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图4</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图5.png" alt="杂志封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图5</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图6.png" alt="杂志封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图6</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图7.png" alt="杂志封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图7</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图1.png" alt="杂志封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图1</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图2.png" alt="杂志封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图2</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图3.png" alt="杂志封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图3</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图4.png" alt="杂志封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图4</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图5.png" alt="杂志封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图5</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图6.png" alt="杂志封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图6</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图7.png" alt="杂志封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图7</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图1.png" alt="杂志封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图1</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图2.png" alt="杂志封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图2</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图3.png" alt="杂志封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图3</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图4.png" alt="杂志封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图4</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图5.png" alt="杂志封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图5</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图6.png" alt="杂志封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图6</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图7.png" alt="杂志封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图7</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图1.png" alt="杂志封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图1</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图2.png" alt="杂志封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图2</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图3.png" alt="杂志封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图3</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图4.png" alt="杂志封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图4</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图5.png" alt="杂志封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图5</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图6.png" alt="杂志封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图6</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图7.png" alt="杂志封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图7</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图1.png" alt="杂志封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图1</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图2.png" alt="杂志封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图2</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图3.png" alt="杂志封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图3</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图4.png" alt="杂志封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图4</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图5.png" alt="杂志封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图5</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图6.png" alt="杂志封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图6</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图7.png" alt="杂志封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图7</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图1.png" alt="杂志封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图1</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图2.png" alt="杂志封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图2</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图3.png" alt="杂志封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图3</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图4.png" alt="杂志封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图4</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图5.png" alt="杂志封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图5</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图6.png" alt="杂志封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图6</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图7.png" alt="杂志封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图7</div></div></div>
                     </div>
                     <ul class="pub-list">
                         <li class="clickable" data-link="https://pubmed.ncbi.nlm.nih.gov/32042166/">
@@ -1547,10 +1567,10 @@
 博士生,杨焘,杨焘,phd.y@sjtu.edu.cn,,
 博士生,刘俊麟,刘俊麟,phd.z@sjtu.edu.cn,脑电与强化学习的结合,
 直博生,朱思仪,朱思仪,direct-phd.q@sjtu.edu.cn,cTBS,
-硕士生,贾杜金,贾杜金,master.m3@sjtu.edu.cn,高危群体转化,
-硕士生,许伊娴,许伊娴,master.m4@sjtu.edu.cn,MSA vs PD,
-硕士生,胥思源,胥思源,master.m2@sjtu.edu.cn,自闭症候选基因发掘,
-硕士生,徐蕾,徐蕾,dj_jia@sjtu.edu.cn,ASD药效相关功能连接特征的选择性增强,
+硕士生,许伊娴,许伊娴,master.m4@sjtu.edu.cn,高危群体转化,
+硕士生,胥思源,胥思源,master.m2@sjtu.edu.cn,MSA vs PD,
+硕士生,徐蕾,徐蕾,master.m1@sjtu.edu.cn,自闭症候选基因发掘,
+硕士生,贾杜金,贾杜金,dj_jia@sjtu.edu.cn,ASD,
 本科生,宋佳怡,宋佳怡,undergrad.sjy@sjtu.edu.cn,,
 本科生,赵浙涵,赵浙涵,undergrad.2@sjtu.edu.cn,,
 本科生,王东东,王东东,undergrad.3@sjtu.edu.cn,,
@@ -2459,31 +2479,52 @@
             let autoScrollTimer = null;
             const scrollSpeed = 2; // 每次滚动2px
             const scrollInterval = 30; // 每30ms滚动一次
-            const oneGroupWidth = 8 * 325 + 7 * 20; // 一组8张照片的总宽度（包括间隔）
-            
+
+            function calcGalleryGroupWidth() {
+                const first = galleryGrid.querySelector('.gallery-item');
+                const style = window.getComputedStyle(galleryGrid);
+                const gap = parseFloat(style.gap || style.columnGap) || 20;
+                const visibleCount = 8; // 隐式一组的图片数
+                if (first) {
+                    const cardW = first.getBoundingClientRect().width;
+                    if (cardW > 0) return visibleCount * cardW + (visibleCount - 1) * gap;
+                }
+                // Fallback: parse gridTemplateColumns
+                const cols = (style.gridTemplateColumns || '').trim().split(/\s+/).map(s => parseFloat(s)).filter(n => !isNaN(n));
+                if (cols.length >= visibleCount) {
+                    const sum = cols.slice(0, visibleCount).reduce((a,b) => a+b, 0);
+                    return sum + (visibleCount - 1) * gap;
+                }
+                return 0;
+            }
+
+            let oneGroupWidth = calcGalleryGroupWidth();
+            // 当窗口尺寸变化时重新计算
+            window.addEventListener('resize', () => { oneGroupWidth = calcGalleryGroupWidth(); });
+
             function startAutoScroll() {
                 if (autoScrollTimer) return;
                 autoScrollTimer = setInterval(() => {
                     galleryGrid.scrollLeft += scrollSpeed;
-                    // 无缝循环：当滚动到第一组结束时，重置回0
-                    if (galleryGrid.scrollLeft >= oneGroupWidth) {
+                    // 无缝循环：当滚动到第一组结束时，重置回0（使用实际计算宽度）
+                    if (oneGroupWidth > 0 && galleryGrid.scrollLeft >= oneGroupWidth) {
                         galleryGrid.scrollLeft = 0;
                     }
                 }, scrollInterval);
             }
-            
+
             function stopAutoScroll() {
                 if (autoScrollTimer) {
                     clearInterval(autoScrollTimer);
                     autoScrollTimer = null;
                 }
             }
-            
+
             // 鼠标进入停止滚动
             galleryGrid.addEventListener('mouseenter', stopAutoScroll);
             // 鼠标离开继续滚动
             galleryGrid.addEventListener('mouseleave', startAutoScroll);
-            
+
             // 页面加载后开始自动滚动
             startAutoScroll();
         }
@@ -2494,31 +2535,51 @@
             let pubAutoScrollTimer = null;
             const pubScrollSpeed = 2; // 每次滚动2px
             const pubScrollInterval = 30; // 每30ms滚动一次
-            const pubOneGroupWidth = 7 * 180 + 6 * 14; // 一组7张卡片的总宽度（包括间隔）
-            
+
+            function calcPubGroupWidth() {
+                const first = pubCoverRow.querySelector('.pub-cover-card');
+                const style = window.getComputedStyle(pubCoverRow);
+                const gap = parseFloat(style.gap) || 14;
+                const groupCount = 7;
+                if (first) {
+                    const cardW = first.getBoundingClientRect().width;
+                    if (cardW > 0) return groupCount * cardW + (groupCount - 1) * gap;
+                }
+                // Fallback: parse gridTemplateColumns
+                const cols = (style.gridTemplateColumns || '').trim().split(/\s+/).map(s => parseFloat(s)).filter(n => !isNaN(n));
+                if (cols.length >= groupCount) {
+                    const sum = cols.slice(0, groupCount).reduce((a,b) => a+b, 0);
+                    return sum + (groupCount - 1) * gap;
+                }
+                return 0;
+            }
+
+            let pubOneGroupWidth = calcPubGroupWidth();
+            window.addEventListener('resize', () => { pubOneGroupWidth = calcPubGroupWidth(); });
+
             function startPubAutoScroll() {
                 if (pubAutoScrollTimer) return;
                 pubAutoScrollTimer = setInterval(() => {
                     pubCoverRow.scrollLeft += pubScrollSpeed;
-                    // 无缝循环：当滚动到第一组结束时，重置回0
-                    if (pubCoverRow.scrollLeft >= pubOneGroupWidth) {
+                    // 无缝循环：当滚动到第一组结束时，重置回0（使用实际计算宽度）
+                    if (pubOneGroupWidth > 0 && pubCoverRow.scrollLeft >= pubOneGroupWidth) {
                         pubCoverRow.scrollLeft = 0;
                     }
                 }, pubScrollInterval);
             }
-            
+
             function stopPubAutoScroll() {
                 if (pubAutoScrollTimer) {
                     clearInterval(pubAutoScrollTimer);
                     pubAutoScrollTimer = null;
                 }
             }
-            
+
             // 鼠标进入停止滚动
             pubCoverRow.addEventListener('mouseenter', stopPubAutoScroll);
             // 鼠标离开继续滚动
             pubCoverRow.addEventListener('mouseleave', startPubAutoScroll);
-            
+
             // 页面加载后开始自动滚动
             startPubAutoScroll();
         }
