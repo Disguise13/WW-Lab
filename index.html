@@ -475,7 +475,7 @@
         }
 
         /* 4. 图片图库网格 */
-        .gallery-grid { display: grid; grid-template-columns: repeat(16, 325px); gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 0px; scrollbar-width: none; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(48, 325px); gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 0px; scrollbar-width: none; }
         .gallery-grid::-webkit-scrollbar { display: none; }
         .gallery-item { aspect-ratio: 16/9; background: rgba(255,255,255,0.05); border-radius: 10px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--text-sub); transition: 0.3s; cursor: pointer; min-width: 325px; flex-shrink: 0; }
         .gallery-item:hover { transform: scale(1.05); border-color: var(--primary-glow); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
@@ -985,28 +985,16 @@
         }
         .pub-cover-row {
             display: grid;
-            grid-template-columns: repeat(7, 180px);
+            grid-template-columns: repeat(28, 180px);
             gap: 14px;
             overflow-x: auto;
             overflow-y: hidden;
             scroll-behavior: smooth;
-            padding-bottom: 8px;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(0, 229, 255, 0.3) rgba(255,255,255,0.05);
+            padding-bottom: 0px;
+            scrollbar-width: none;
         }
         .pub-cover-row::-webkit-scrollbar {
-            height: 6px;
-        }
-        .pub-cover-row::-webkit-scrollbar-track {
-            background: rgba(255,255,255,0.05);
-            border-radius: 3px;
-        }
-        .pub-cover-row::-webkit-scrollbar-thumb {
-            background: rgba(0, 229, 255, 0.3);
-            border-radius: 3px;
-        }
-        .pub-cover-row::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 229, 255, 0.6);
+            display: none;
         }
         .pub-cover-card {
             display: flex;
@@ -1430,48 +1418,34 @@
                 <div class="glass-panel">
                     <h2 class="section-title" data-i18n="pubs_title">代表性学术成果</h2>
                     <div class="pub-cover-row">
-                        <div class="pub-cover-card">
-                            <div class="pub-cover-frame">
-                                <img src="文章封面图1.jpg" alt="文章封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="pub-cover-placeholder">文章封面图1</div>
-                            </div>
-                        </div>
-                        <div class="pub-cover-card">
-                            <div class="pub-cover-frame">
-                                <img src="文章封面图2.jpg" alt="文章封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="pub-cover-placeholder">文章封面图2</div>
-                            </div>
-                        </div>
-                        <div class="pub-cover-card">
-                            <div class="pub-cover-frame">
-                                <img src="文章封面图3.jpg" alt="文章封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="pub-cover-placeholder">文章封面图3</div>
-                            </div>
-                        </div>
-                        <div class="pub-cover-card">
-                            <div class="pub-cover-frame">
-                                <img src="文章封面图4.jpg" alt="文章封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="pub-cover-placeholder">文章封面图4</div>
-                            </div>
-                        </div>
-                        <div class="pub-cover-card">
-                            <div class="pub-cover-frame">
-                                <img src="文章封面图5.jpg" alt="文章封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="pub-cover-placeholder">文章封面图5</div>
-                            </div>
-                        </div>
-                        <div class="pub-cover-card">
-                            <div class="pub-cover-frame">
-                                <img src="文章封面图6.jpg" alt="文章封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="pub-cover-placeholder">文章封面图6</div>
-                            </div>
-                        </div>
-                        <div class="pub-cover-card">
-                            <div class="pub-cover-frame">
-                                <img src="文章封面图7.jpg" alt="文章封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="pub-cover-placeholder">文章封面图7</div>
-                            </div>
-                        </div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图1.jpg" alt="文章封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图1</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图2.jpg" alt="文章封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图2</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图3.jpg" alt="文章封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图3</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图4.jpg" alt="文章封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图4</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图5.jpg" alt="文章封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图5</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图6.jpg" alt="文章封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图6</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图7.jpg" alt="文章封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图7</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图1.jpg" alt="文章封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图1</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图2.jpg" alt="文章封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图2</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图3.jpg" alt="文章封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图3</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图4.jpg" alt="文章封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图4</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图5.jpg" alt="文章封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图5</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图6.jpg" alt="文章封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图6</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图7.jpg" alt="文章封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图7</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图1.jpg" alt="文章封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图1</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图2.jpg" alt="文章封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图2</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图3.jpg" alt="文章封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图3</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图4.jpg" alt="文章封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图4</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图5.jpg" alt="文章封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图5</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图6.jpg" alt="文章封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图6</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图7.jpg" alt="文章封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图7</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图1.jpg" alt="文章封面图1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图1</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图2.jpg" alt="文章封面图2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图2</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图3.jpg" alt="文章封面图3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图3</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图4.jpg" alt="文章封面图4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图4</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图5.jpg" alt="文章封面图5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图5</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图6.jpg" alt="文章封面图6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图6</div></div></div>
+                        <div class="pub-cover-card"><div class="pub-cover-frame"><img src="文章封面图7.jpg" alt="文章封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">文章封面图7</div></div></div>
                     </div>
                     <ul class="pub-list">
                         <li class="clickable" data-link="https://pubmed.ncbi.nlm.nih.gov/32042166/">
@@ -1534,6 +1508,38 @@
                 <div class="glass-panel">
                     <h2 class="section-title" data-i18n="team_activity">集体活动</h2>
                     <div class="gallery-grid" id="gallery-container">
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="奉贤会议" data-lightbox-image="课题组合照 奉贤会议.jpg"><img src="课题组合照 奉贤会议.jpg" alt="奉贤会议"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="徐汇校区" data-lightbox-image="课题组合照 徐汇校区.jpg"><img src="课题组合照 徐汇校区.jpg" alt="徐汇校区"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="新年合照" data-lightbox-image="课题组合照 新年合照.jpg"><img src="课题组合照 新年合照.jpg" alt="新年合照"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="智能神经调控与脑机接口峰会" data-lightbox-image="课题组合照 智能神经调控与脑机接口峰会.jpg"><img src="课题组合照 智能神经调控与脑机接口峰会.jpg" alt="智能神经调控与脑机接口峰会"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="特别的生日" data-lightbox-image="课题组合照 特别的生日.jpg"><img src="课题组合照 特别的生日.jpg" alt="特别的生日"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="莫干山团建" data-lightbox-image="课题组合照 莫干山团建.jpg"><img src="课题组合照 莫干山团建.jpg" alt="莫干山团建"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="课题组聚餐" data-lightbox-image="课题组合照 课题组聚餐.jpg"><img src="课题组合照 课题组聚餐.jpg" alt="课题组聚餐"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="采集脑电" data-lightbox-image="课题组合照 采集脑电.jpg"><img src="课题组合照 采集脑电.jpg" alt="采集脑电"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="奉贤会议" data-lightbox-image="课题组合照 奉贤会议.jpg"><img src="课题组合照 奉贤会议.jpg" alt="奉贤会议"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="徐汇校区" data-lightbox-image="课题组合照 徐汇校区.jpg"><img src="课题组合照 徐汇校区.jpg" alt="徐汇校区"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="新年合照" data-lightbox-image="课题组合照 新年合照.jpg"><img src="课题组合照 新年合照.jpg" alt="新年合照"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="智能神经调控与脑机接口峰会" data-lightbox-image="课题组合照 智能神经调控与脑机接口峰会.jpg"><img src="课题组合照 智能神经调控与脑机接口峰会.jpg" alt="智能神经调控与脑机接口峰会"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="特别的生日" data-lightbox-image="课题组合照 特别的生日.jpg"><img src="课题组合照 特别的生日.jpg" alt="特别的生日"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="莫干山团建" data-lightbox-image="课题组合照 莫干山团建.jpg"><img src="课题组合照 莫干山团建.jpg" alt="莫干山团建"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="课题组聚餐" data-lightbox-image="课题组合照 课题组聚餐.jpg"><img src="课题组合照 课题组聚餐.jpg" alt="课题组聚餐"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="采集脑电" data-lightbox-image="课题组合照 采集脑电.jpg"><img src="课题组合照 采集脑电.jpg" alt="采集脑电"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="奉贤会议" data-lightbox-image="课题组合照 奉贤会议.jpg"><img src="课题组合照 奉贤会议.jpg" alt="奉贤会议"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="徐汇校区" data-lightbox-image="课题组合照 徐汇校区.jpg"><img src="课题组合照 徐汇校区.jpg" alt="徐汇校区"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="新年合照" data-lightbox-image="课题组合照 新年合照.jpg"><img src="课题组合照 新年合照.jpg" alt="新年合照"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="智能神经调控与脑机接口峰会" data-lightbox-image="课题组合照 智能神经调控与脑机接口峰会.jpg"><img src="课题组合照 智能神经调控与脑机接口峰会.jpg" alt="智能神经调控与脑机接口峰会"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="特别的生日" data-lightbox-image="课题组合照 特别的生日.jpg"><img src="课题组合照 特别的生日.jpg" alt="特别的生日"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="莫干山团建" data-lightbox-image="课题组合照 莫干山团建.jpg"><img src="课题组合照 莫干山团建.jpg" alt="莫干山团建"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="课题组聚餐" data-lightbox-image="课题组合照 课题组聚餐.jpg"><img src="课题组合照 课题组聚餐.jpg" alt="课题组聚餐"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="采集脑电" data-lightbox-image="课题组合照 采集脑电.jpg"><img src="课题组合照 采集脑电.jpg" alt="采集脑电"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="奉贤会议" data-lightbox-image="课题组合照 奉贤会议.jpg"><img src="课题组合照 奉贤会议.jpg" alt="奉贤会议"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="徐汇校区" data-lightbox-image="课题组合照 徐汇校区.jpg"><img src="课题组合照 徐汇校区.jpg" alt="徐汇校区"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="新年合照" data-lightbox-image="课题组合照 新年合照.jpg"><img src="课题组合照 新年合照.jpg" alt="新年合照"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="智能神经调控与脑机接口峰会" data-lightbox-image="课题组合照 智能神经调控与脑机接口峰会.jpg"><img src="课题组合照 智能神经调控与脑机接口峰会.jpg" alt="智能神经调控与脑机接口峰会"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="特别的生日" data-lightbox-image="课题组合照 特别的生日.jpg"><img src="课题组合照 特别的生日.jpg" alt="特别的生日"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="莫干山团建" data-lightbox-image="课题组合照 莫干山团建.jpg"><img src="课题组合照 莫干山团建.jpg" alt="莫干山团建"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="课题组聚餐" data-lightbox-image="课题组合照 课题组聚餐.jpg"><img src="课题组合照 课题组聚餐.jpg" alt="课题组聚餐"></div>
+                        <div class="gallery-item lightbox-trigger" data-lightbox-title="采集脑电" data-lightbox-image="课题组合照 采集脑电.jpg"><img src="课题组合照 采集脑电.jpg" alt="采集脑电"></div>
                         <div class="gallery-item lightbox-trigger" data-lightbox-title="奉贤会议" data-lightbox-image="课题组合照 奉贤会议.jpg"><img src="课题组合照 奉贤会议.jpg" alt="奉贤会议"></div>
                         <div class="gallery-item lightbox-trigger" data-lightbox-title="徐汇校区" data-lightbox-image="课题组合照 徐汇校区.jpg"><img src="课题组合照 徐汇校区.jpg" alt="徐汇校区"></div>
                         <div class="gallery-item lightbox-trigger" data-lightbox-title="新年合照" data-lightbox-image="课题组合照 新年合照.jpg"><img src="课题组合照 新年合照.jpg" alt="新年合照"></div>
@@ -2481,7 +2487,7 @@
             let autoScrollTimer = null;
             const scrollSpeed = 2; // 每次滚动2px
             const scrollInterval = 30; // 每30ms滚动一次
-            const oneGroupWidth = 8 * 325; // 一组8张照片的总宽度（8 * 325px）
+            const oneGroupWidth = 8 * 325 + 7 * 20; // 一组8张照片的总宽度（包括间隔）
             
             function startAutoScroll() {
                 if (autoScrollTimer) return;
@@ -2508,6 +2514,41 @@
             
             // 页面加载后开始自动滚动
             startAutoScroll();
+        }
+
+        // 出版物卡片轮播（自动循环滚动，与照片逻辑一致）
+        const pubCoverRow = document.querySelector('.pub-cover-row');
+        if (pubCoverRow) {
+            let pubAutoScrollTimer = null;
+            const pubScrollSpeed = 2; // 每次滚动2px
+            const pubScrollInterval = 30; // 每30ms滚动一次
+            const pubOneGroupWidth = 7 * 180 + 6 * 14; // 一组7张卡片的总宽度（包括间隔）
+            
+            function startPubAutoScroll() {
+                if (pubAutoScrollTimer) return;
+                pubAutoScrollTimer = setInterval(() => {
+                    pubCoverRow.scrollLeft += pubScrollSpeed;
+                    // 无缝循环：当滚动到第一组结束时，重置回0
+                    if (pubCoverRow.scrollLeft >= pubOneGroupWidth) {
+                        pubCoverRow.scrollLeft = 0;
+                    }
+                }, pubScrollInterval);
+            }
+            
+            function stopPubAutoScroll() {
+                if (pubAutoScrollTimer) {
+                    clearInterval(pubAutoScrollTimer);
+                    pubAutoScrollTimer = null;
+                }
+            }
+            
+            // 鼠标进入停止滚动
+            pubCoverRow.addEventListener('mouseenter', stopPubAutoScroll);
+            // 鼠标离开继续滚动
+            pubCoverRow.addEventListener('mouseleave', startPubAutoScroll);
+            
+            // 页面加载后开始自动滚动
+            startPubAutoScroll();
         }
 
         // 为所有图库项绑定灯箱事件
