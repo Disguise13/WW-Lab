@@ -983,6 +983,64 @@
             line-height: 1.8;
             font-size: calc(0.98rem * var(--font-scale));
         }
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .research-card {
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 12px;
+            background: rgba(255,255,255,0.04);
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .research-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 229, 255, 0.35);
+            background: rgba(255,255,255,0.07);
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+        }
+        .research-card:active {
+            transform: translateY(-2px) scale(0.99);
+        }
+        .research-card:focus-visible {
+            outline: 2px solid rgba(0, 229, 255, 0.75);
+            outline-offset: 2px;
+        }
+        .research-card:hover .research-card-frame img {
+            transform: scale(1.03);
+        }
+        .research-card-frame {
+            aspect-ratio: 4 / 3;
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .research-card-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.25s ease;
+        }
+        .research-card-caption {
+            margin-top: 10px;
+            text-align: center;
+            color: var(--text-main);
+            font-size: calc(0.98rem * var(--font-scale));
+            line-height: 1.5;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
         .pub-cover-row {
             display: grid;
             grid-template-columns: repeat(49, 180px);
@@ -1129,6 +1187,7 @@
             .hero-title { font-size: calc(2.2rem * var(--font-scale)); }
             .media-block { grid-template-columns: 1fr; }
             .media-image { min-height: 170px; }
+            .research-grid { grid-template-columns: 1fr; }
             .pub-cover-row { grid-template-columns: repeat(49, 180px); }
             .recruitment-grid { grid-template-columns: 1fr; }
             .gallery-grid { grid-template-columns: repeat(2, 325px); gap: 14px; }
@@ -1153,6 +1212,9 @@
             .member-grid { grid-template-columns: repeat(2, minmax(130px, 1fr)); gap: 10px; }
             .member-card { padding: 8px; }
             .media-image { min-height: 130px; }
+            .research-grid { grid-template-columns: 1fr; gap: 12px; }
+            .research-card { padding: 10px; }
+            .research-card-caption { font-size: calc(0.92rem * var(--font-scale)); }
             #section-dots { display: none; }
         }
 
@@ -1368,18 +1430,30 @@
             <section id="research" class="page-section">
                 <div class="glass-panel">
                     <h2 class="section-title" data-i18n="research_title">现有研究方向</h2>
-                    <div class="media-block">
-                        <div class="media-image"><img src="research_clinical.jpg" alt="临床转化研究"><br></div>
-                        <div class="media-content">
-                            <h4 data-i18n="research_dir1">一、脑疾病的精准诊疗及临床转化</h4>
-                            <p data-i18n="research_desc1">依托临床数据与前沿 AI 技术，构建可落地的医疗级平台：精神病高危人群风险预测模型研发；青少年抑郁早期筛查与早期干预技术；睡眠障碍相关脑疾病的精准诊疗标志物发现。</p>
+                    <div class="research-grid">
+                        <div class="research-card" tabindex="0" role="button" aria-label="研究方向1 脑电解码算法">
+                            <div class="research-card-frame">
+                                <img src="研究方向1 脑电解码算法.png" alt="研究方向1 脑电解码算法" loading="lazy">
+                            </div>
+                            <div class="research-card-caption">研究方向1 脑电解码算法</div>
                         </div>
-                    </div>
-                    <div class="media-block">
-                        <div class="media-image"><img src="research_algorithm.jpg" alt="算法/脑信号分析"><br></div>
-                        <div class="media-content">
-                            <h4 data-i18n="research_dir2">二、脑信号处理与机器学习</h4>
-                            <p data-i18n="research_desc2">聚焦底层算法与神经计算模型创新：复杂脑信号（EEG/MEG 等）的高精度解码算法；脑电/脑磁的高时空分辨率源定位算法；基于稀疏贝叶斯与深度学习的端到端信号处理框架。</p>
+                        <div class="research-card" tabindex="0" role="button" aria-label="研究方向2 精神疾病：风险预测与疗效预测">
+                            <div class="research-card-frame">
+                                <img src="研究方向2 精神疾病：风险预测与疗效预测.png" alt="研究方向2 精神疾病：风险预测与疗效预测" loading="lazy">
+                            </div>
+                            <div class="research-card-caption">研究方向2 精神疾病：风险预测与疗效预测</div>
+                        </div>
+                        <div class="research-card" tabindex="0" role="button" aria-label="研究方向3 神经发育障碍：早期识别筛查">
+                            <div class="research-card-frame">
+                                <img src="研究方向3 神经发育障碍：早期识别筛查.png" alt="研究方向3 神经发育障碍：早期识别筛查" loading="lazy">
+                            </div>
+                            <div class="research-card-caption">研究方向3 神经发育障碍：早期识别筛查</div>
+                        </div>
+                        <div class="research-card" tabindex="0" role="button" aria-label="研究方向4 神经退行性疾病：早期鉴别诊断">
+                            <div class="research-card-frame">
+                                <img src="研究方向4 神经退行性疾病：早期鉴别诊断.png" alt="研究方向4 神经退行性疾病：早期鉴别诊断" loading="lazy">
+                            </div>
+                            <div class="research-card-caption">研究方向4 神经退行性疾病：早期鉴别诊断</div>
                         </div>
                     </div>
                 </div>
@@ -1440,58 +1514,27 @@
                         <div class="pub-cover-card"><div class="pub-cover-frame"><img src="杂志封面图7.png" alt="杂志封面图7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="pub-cover-placeholder">杂志封面图7</div></div></div>
                     </div>
                     <ul class="pub-list">
-                        <li class="clickable" data-link="https://pubmed.ncbi.nlm.nih.gov/32042166/">
-                            Wu W, Zhang Y, Jiang J, ... Etkin A. <span class="pub-title">An Electroencephalographic Signature Predicts Antidepressant Response in Major Depression.</span> <span class="pub-journal">Nature Biotechnology</span>, 2020, 38(4): 439-447.
-                            <div class="pub-links">
-                                <a href="https://pubmed.ncbi.nlm.nih.gov/32042166/" target="_blank" rel="noopener noreferrer">PubMed</a>
-                                <a href="https://doi.org/10.1038/s41587-020-0476-5" target="_blank" rel="noopener noreferrer">News &amp; Views</a>
-                                <a href="https://www.psychiatrictimes.com/view/homing-eeg-signature-predict-antidepressant-response" target="_blank" rel="noopener noreferrer">Psychiatry Times</a>
-                            </div>
-                        </li>
-                        
-                        <li class="clickable" data-link="https://pubmed.ncbi.nlm.nih.gov/?term=Machine+learning-based+identification+of+a+psychotherapy-predictive+electroencephalographic+signature+in+PTSD">
-                            Zhang Y#, Naparstek S, ... Etkin A#, Wu W#. <span class="pub-title">Machine learning-based identification of a psychotherapy-predictive electroencephalographic signature in PTSD.</span> <span class="pub-journal">Nature Mental Health</span>, 2023, 1: 284-294.
-                            <div class="pub-links">
-                                <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Machine+learning-based+identification+of+a+psychotherapy-predictive+electroencephalographic+signature+in+PTSD" target="_blank" rel="noopener noreferrer">PubMed检索</a>
-                            </div>
-                        </li>
-                        
-                        <li class="clickable" data-link="https://pubmed.ncbi.nlm.nih.gov/?term=Identification+of+Psychiatric+Disorder+Subtypes+from+Functional+Connectivity+Patterns+in+Resting-State+Electroencephalography">
-                            Zhang Y*, Wu W*, ... Marmar C R, Etkin A. <span class="pub-title">Identification of Psychiatric Disorder Subtypes from Functional Connectivity Patterns in Resting-State Electroencephalography.</span> <span class="pub-journal">Nature Biomedical Engineering</span>, 2021, 5(4): 309-323.
-                            <div class="pub-links">
-                                <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Identification+of+Psychiatric+Disorder+Subtypes+from+Functional+Connectivity+Patterns+in+Resting-State+Electroencephalography" target="_blank" rel="noopener noreferrer">PubMed检索</a>
-                            </div>
-                        </li>
+                        <li>Li, Y., Li, S., Li, Y., Pang, X., Yi, C., Jiang, L., Yao, D., <strong>Wu, W.</strong>, Li, F. &amp; Xu, P. <span class="pub-title">Temporal synchrony and spatial similarity of interbrain subnetworks predict dyadic social interaction.</span> <span class="pub-journal">Communications Biology</span>, 2026, 9, 589.</li>
 
-                        <li class="clickable" data-link="https://pubmed.ncbi.nlm.nih.gov/?term=Using+fMRI+Connectivity+to+Define+a+Treatment-Resistant+Form+of+Post-Traumatic+Stress+Disorder">
-                            Etkin A*, Maron-Katz A*, Wu W*, ... et al. <span class="pub-title">Using fMRI Connectivity to Define a Treatment-Resistant Form of Post-Traumatic Stress Disorder.</span> <span class="pub-journal">Science Translational Medicine</span>, 2019, 11 (486).
-                            <div class="pub-links">
-                                <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Using+fMRI+Connectivity+to+Define+a+Treatment-Resistant+Form+of+Post-Traumatic+Stress+Disorder" target="_blank" rel="noopener noreferrer">PubMed检索</a>
-                            </div>
-                        </li>
+                        <li>Wang, W., Cheng, J., Zhang, X., Wu, X., Ruan, H., Huang, B., Xu, T., Qi, F., Liang, Y., Zhi, H., Gao, J., Cao, L., Wang, Y., Zhuo, K., Keller, C. J., Schalk, G., Jiang. J., Fan, Q., Williams, N., Han, H., <strong>Wu, W.</strong> &amp; Wang, Z. <span class="pub-title">A Preoperative Electroencephalography Signature for Predicting Treatment Response to Deep Brain Stimulation in Obsessive-Compulsive Disorder.</span> <span class="pub-journal">medRxiv</span>.</li>
 
-                        <li>Tian W*, Zhao D*, ... Wu W#, Yuan T#. <span class="pub-title">An electroencephalographic signature predicts craving for methamphetamine.</span> <span class="pub-journal">Cell Reports Medicine</span>, 2024, 5(2): 101427.</li>
+                        <li>Li, F., Wang, G., Genon, S., Eickhoff, S. B., He, R., Yi, C., Dong, D., Yao, D., Jiang, L., <strong>Wu, W.</strong> &amp; Xu, P. <span class="pub-title">Mapping neurophysiological and molecular profiles of heterogeneity and homogeneity in schizophrenia-bipolar disorder.</span> <span class="pub-journal">Science Advances</span>, 2025, 11(46): eadz0389.</li>
 
-                        <li>Wang W*, Qi F*, ... Yu Z#, Wu W#. <span class="pub-title">Sparse Bayesian Learning for End-to-End EEG Decoding.</span> <span class="pub-journal">IEEE Transactions on Pattern Analysis and Machine Intelligence</span>, 2023, 45(12): 15632-15649.</li>
+                        <li>Chen, Z. S., Lu, B. L., &amp; <strong>Wu, W.</strong> <span class="pub-title">Representation Learning and Foundation Models for Electroencephalography Analyses: Current trends, fundamental insights, and future directions.</span> <span class="pub-journal">IEEE Signal Processing Magazine</span>, 2025, 42(5): 36-57.</li>
 
-                        <li>Wang W, Qi F, ... Wu W#. <span class="pub-title">EEG-based Cross-subject Emotion Recognition Using Sparse Bayesian Learning with Enhanced Covariance Alignment.</span> <span class="pub-journal">IEEE Transactions on Affective Computing</span>, in press.</li>
+                        <li>Wang, W., Qi, F., ... <strong>Wu, W.</strong> <span class="pub-title">EEG-based Cross-subject Emotion Recognition Using Sparse Bayesian Learning with Enhanced Covariance Alignment.</span> <span class="pub-journal">IEEE Transactions on Affective Computing</span>, 2024, 16(2): 1190-1204.</li>
 
-                        <li>Huang G, Liu K, ... Yu Z, Wu W#. <span class="pub-title">Electromagnetic source imaging via a data-synthesis-based convolutional encoder-decoder network.</span> <span class="pub-journal">IEEE Transactions on Neural Networks and Learning Systems</span>, 2023, 35(5): 6423-6437.</li>
+                        <li>Tian, W., Zhao, D., Ding, J., Zhan, S., Zhang, Y., Etkin, A., ... <strong>Wu, W.</strong> &amp; Yuan, T. F. <span class="pub-title">An electroencephalographic signature predicts craving for methamphetamine.</span> <span class="pub-journal">Cell Reports Medicine</span>, 2024, 25(1).</li>
 
-                        <li>Huang W, Wang W, Li Y, Wu W#. <span class="pub-title">FBSTCNet: A spatial-temporal convolutional network integrating power and connectivity features for EEG-based emotion decoding.</span> <span class="pub-journal">IEEE Transactions on Affective Computing</span>, 2024.</li>
-                        
-                        <li>Qi F, Wu W#, Yu Z, ... Li Y. <span class="pub-title">Spatio-Temporal Filtering-Based Channel Selection for Single-Trial EEG Classification.</span> <span class="pub-journal">IEEE Transactions on Cybernetics</span>, 2021, 51(2): 558-567.</li>
+                        <li>Wang, W., Qi, F., Wipf, D. P., Cai, C., Yu, T., Li, Y., ... &amp; <strong>Wu, W.</strong> <span class="pub-title">Sparse Bayesian learning for end-to-end EEG decoding.</span> <span class="pub-journal">IEEE Transactions on Pattern Analysis and Machine Intelligence</span>, 2023, 45(12): 15632-15649.</li>
 
-                        <li>Qi F, Li Y, Wu W#. <span class="pub-title">RSTFC: A Novel Algorithm for Spatio-Temporal Filtering and Classification of Single-Trial EEG.</span> <span class="pub-journal">IEEE Transactions on Neural Networks and Learning Systems</span>, 2015, 26(12): 3070-3082.</li>
+                        <li>Zhang, Y., Naparstek, S., Gordon, J., Watts, M., Shpigel, E., El-Said, D., ... &amp; <strong>Wu, W.</strong> <span class="pub-title">Machine learning-based identification of a psychotherapy-predictive electroencephalographic signature in PTSD.</span> <span class="pub-journal">Nature Mental Health</span>, 2023, 1(4): 284-294.</li>
 
-                        <li>Toll R T*, Wu W*, ... Etkin A. <span class="pub-title">An Electroencephalography Connectomic Profile of Post-Traumatic Stress Disorder.</span> <span class="pub-journal">American Journal of Psychiatry</span>, 2020, 177(3): 233-243.</li>
+                        <li>Zhang, Y., <strong>Wu, W.</strong>, Toll, R. T., Naparstek, S., Maron-Katz, A., Watts, M., ... &amp; Etkin, A. <span class="pub-title">Identification of psychiatric disorder subtypes from functional connectivity patterns in resting-state electroencephalography.</span> <span class="pub-journal">Nature Biomedical Engineering</span>, 2021, 5(4): 309-323.</li>
 
-                        <li class="clickable" data-link="https://pubmed.ncbi.nlm.nih.gov/?term=Bayesian+Machine+Learning+for+EEG%2FMEG">
-                            Wu W, Nagrajan S, Chen Z. <span class="pub-title">Bayesian Machine Learning for EEG/MEG.</span> <span class="pub-journal">IEEE Signal Processing Magazine</span>, 2016, 33(1): 14-36.
-                            <div class="pub-links">
-                                <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Bayesian+Machine+Learning+for+EEG%2FMEG" target="_blank" rel="noopener noreferrer">PubMed检索</a>
-                            </div>
-                        </li>
+                        <li><strong>Wu, W.</strong>, Zhang, Y., Jiang, J., Lucas, M. V., Fonzo, G. A., Rolle, C. E., ... &amp; Etkin, A. <span class="pub-title">An electroencephalographic signature predicts antidepressant response in major depression.</span> <span class="pub-journal">Nature Biotechnology</span>, 2020, 38(4): 439-447.</li>
+
+                        <li>Toll, R. T., <strong>Wu, W.</strong>, Naparstek, S., Zhang, Y., Narayan, M., Patenaude, B., ... &amp; Etkin, A. <span class="pub-title">An electroencephalography connectomic profile of posttraumatic stress disorder.</span> <span class="pub-journal">American Journal of Psychiatry</span>, 2020, 177(3): 233-243.</li>
                     </ul>
                 </div>
             </section>
