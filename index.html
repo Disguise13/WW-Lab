@@ -18,6 +18,9 @@
             --text-soft: rgba(255, 255, 255, 0.54);
             --header-bg: rgba(1, 3, 8, 0.4);
             --panel-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            --card-hover-border: rgba(0, 229, 255, 0.5);
+            --card-hover-bg: rgba(255, 255, 255, 0.07);
+            --card-hover-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
             --font-scale: 1;
         }
 
@@ -35,6 +38,9 @@
             --text-soft: rgba(16, 32, 52, 0.62);
             --header-bg: rgba(248, 252, 255, 0.88);
             --panel-shadow: 0 14px 34px rgba(29, 76, 122, 0.10);
+            --card-hover-border: rgba(31, 95, 151, 0.5);
+            --card-hover-bg: rgba(31, 95, 151, 0.09);
+            --card-hover-shadow: 0 12px 24px rgba(31, 95, 151, 0.14);
         }
 
         * { box-sizing: border-box; }
@@ -403,9 +409,8 @@
         .glass-panel {
             background: var(--glass-bg); border: 1px solid var(--glass-border);
             border-radius: 20px; padding: 40px; margin-bottom: 30px;
-            box-shadow: var(--panel-shadow); transition: border-color 0.3s;
+            box-shadow: var(--panel-shadow); transition: border-color 0.24s ease;
         }
-        .glass-panel:hover { border-color: rgba(0, 229, 255, 0.3); }
         .section-title { font-size: calc(2rem * var(--font-scale)); font-weight: 300; margin-top: 0; margin-bottom: 30px; border-bottom: 1px solid var(--glass-border); padding-bottom: 15px; }
 
         /* === 具体页面排版 === */
@@ -417,9 +422,43 @@
         .hero-title .hero-bold { font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(120deg, var(--neon-border) 0%, rgba(30, 122, 180, 0.9) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero-title .hero-normal { font-weight: 400; }
         .hero-eeg-wave { width: 100%; height: 60px; margin: 20px 0; opacity: 0.4; }
-        .hero-subtitle { font-size: calc(1.6rem * var(--font-scale)); color: var(--text-sub); line-height: 1.8; max-width: 900px; }
+        .hero-subtitle { font-size: calc(1.6rem * var(--font-scale)); color: var(--text-sub); line-height: 1.72; max-width: 960px; }
+        #home { position: relative; }
+        .home-featured {
+            display: flex;
+            justify-content: center;
+            margin-top: 26px;
+            padding: 0;
+            border: none;
+            background: transparent;
+            box-shadow: none;
+        }
+        .home-featured-media {
+            width: 100%;
+            max-width: 1040px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            background: rgba(255,255,255,0.04);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+        }
+        .home-featured-media img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            margin: 0 auto;
+        }
         .home-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
         .home-card { text-align: center; padding: 30px; cursor: pointer; }
+        .home-card { transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease, background 0.24s ease; }
+        .home-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--card-hover-border);
+            background: var(--card-hover-bg);
+            box-shadow: var(--card-hover-shadow);
+        }
         .home-card h3 { color: var(--neon-border); font-weight: 400; font-size: calc(1.15rem * var(--font-scale)); }
         .home-card-desc { color: var(--text-sub); font-size: calc(0.9rem * var(--font-scale)); }
 
@@ -477,8 +516,13 @@
         /* 4. 图片图库网格 */
         .gallery-grid { display: grid; grid-template-columns: repeat(48, 325px); gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 0px; scrollbar-width: none; }
         .gallery-grid::-webkit-scrollbar { display: none; }
-        .gallery-item { aspect-ratio: 16/9; background: rgba(255,255,255,0.05); border-radius: 10px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--text-sub); transition: 0.3s; cursor: pointer; min-width: 325px; flex-shrink: 0; }
-        .gallery-item:hover { transform: scale(1.05); border-color: var(--primary-glow); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .gallery-item { aspect-ratio: 16/9; background: rgba(255,255,255,0.05); border-radius: 10px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--text-sub); transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease, background 0.24s ease; cursor: pointer; min-width: 325px; flex-shrink: 0; }
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            border-color: var(--card-hover-border);
+            background: var(--card-hover-bg);
+            box-shadow: var(--card-hover-shadow);
+        }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 9px; }
         .team-group { margin-top: 30px; }
         .team-group:first-child { margin-top: 0; }
@@ -935,8 +979,10 @@
             transition: all 0.3s ease;
         }
         .member-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary-glow);
+            transform: translateY(-4px);
+            border-color: var(--card-hover-border);
+            background: var(--card-hover-bg);
+            box-shadow: var(--card-hover-shadow);
         }
         .gallery-item {
             cursor: pointer;
@@ -1001,10 +1047,10 @@
             overflow: hidden;
         }
         .research-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(0, 229, 255, 0.35);
-            background: rgba(255,255,255,0.07);
-            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+            transform: translateY(-4px);
+            border-color: var(--card-hover-border);
+            background: var(--card-hover-bg);
+            box-shadow: var(--card-hover-shadow);
         }
         .research-card:active {
             transform: translateY(-2px) scale(0.99);
@@ -1107,9 +1153,25 @@
         }
         .recruitment-ad:hover {
             transform: translateY(-4px);
-            border-color: var(--primary-glow);
-            box-shadow: 0 16px 30px rgba(0,0,0,0.18);
-            background: rgba(255,255,255,0.06);
+            border-color: var(--card-hover-border);
+            box-shadow: var(--card-hover-shadow);
+            background: var(--card-hover-bg);
+        }
+
+        .home-featured-media,
+        .pub-cover-frame,
+        .media-image,
+        .media-content {
+            transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease, background 0.24s ease;
+        }
+        .home-featured-media:hover,
+        .pub-cover-frame:hover,
+        .media-image:hover,
+        .media-content:hover {
+            transform: translateY(-3px);
+            border-color: var(--card-hover-border);
+            background: var(--card-hover-bg);
+            box-shadow: var(--card-hover-shadow);
         }
         .recruitment-ad-media {
             position: relative;
@@ -1182,6 +1244,7 @@
             #content-wrapper { padding: 22px 20px; }
             .glass-panel { padding: 24px; }
             .home-grid { grid-template-columns: 1fr; }
+            .home-featured-media img { max-height: 380px; }
             .prof-layout { grid-template-columns: 1fr; gap: 20px; justify-items: center; }
             .prof-avatar { width: 240px; }
             .hero-title { font-size: calc(2.2rem * var(--font-scale)); }
@@ -1195,6 +1258,7 @@
         }
 
         @media (max-width: 640px) {
+            .home-featured { padding: 10px; }
             .intro-card { padding: 32px 20px; width: calc(100% - 32px); }
             .intro-card h1 { font-size: calc(2rem * var(--font-scale)); letter-spacing: 1.5px; }
             .intro-card p { font-size: calc(1rem * var(--font-scale)); letter-spacing: 1px; }
@@ -1327,7 +1391,7 @@
         <header>
             <div class="logo">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                Wu <span>Lab</span>
+                DECODE <span>Lab</span>
             </div>
             <div class="nav-links">
                 <a class="nav-link" onclick="navTo('prof')" data-i18n="nav_prof">吴畏 教授</a>
@@ -1382,14 +1446,19 @@
             
             <section id="home" class="page-section active">
                 <div class="glass-panel" style="border:none; box-shadow:none; background:transparent; padding:0;">
-                    <h1 class="hero-title"><span class="hero-light" data-i18n="hero_title">AI驱动的</span> <span class="hero-bold" data-i18n="hero_highlight">脑疾病精准诊疗</span></h1>
+                    <h1 class="hero-title"><span class="hero-light" data-i18n="hero_title">Lab of Artificial Intelligence for</span> <span class="hero-bold" data-i18n="hero_highlight">Precision Therapeutics of brain Disorders</span></h1>
                     <svg class="hero-eeg-wave" viewBox="0 0 600 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="分隔线"><line x1="0" y1="30" x2="600" y2="30" fill="none" stroke="var(--neon-border)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></line></svg>
-                    <p class="hero-subtitle" data-i18n="hero_subtitle2" style="font-size: calc(2.4rem * var(--font-scale)); font-weight: 700; color: var(--primary-glow); margin-top: 24px; margin-bottom: 48px; letter-spacing: 0.6px; text-shadow: 0 6px 18px rgba(0,229,255,0.12);">我们的愿景: 推动脑疾病诊疗迈入精准医学时代</p>
-                    <p class="hero-subtitle" style="margin-top: 0px; font-size: calc(1.4rem * var(--font-scale)); color: var(--text-sub);">
+                    <p class="hero-subtitle" data-i18n="hero_subtitle2" style="font-size: calc(1.95rem * var(--font-scale)); font-weight: 700; color: var(--primary-glow); margin-top: 18px; margin-bottom: 30px; letter-spacing: 0.3px; text-shadow: 0 6px 18px rgba(0,229,255,0.12);">我们的愿景: 推动脑疾病诊疗迈入精准医学时代</p>
+                    <p class="hero-subtitle" style="margin-top: 0px; font-size: calc(1.28rem * var(--font-scale)); color: var(--text-sub);">
                         <span data-i18n="hero_intro">PI: 吴畏，上海交通大学特聘教授、博导，医学院资深研究员，国家高层次领军人才</span><br>
                         <span data-i18n="hero_email">邮箱:</span> weiwuneuro@sjtu.edu.cn<br>
                         <span data-i18n="hero_research">研究方向: AI驱动的脑疾病精准诊疗及临床转化、脑信号处理与机器学习</span>
                     </p>
+                </div>
+                <div class="glass-panel home-featured">
+                    <div class="home-featured-media">
+                        <img src="精准精神病.png" alt="精准精神病诊疗流程图" loading="lazy">
+                    </div>
                 </div>
                 <div class="home-grid">
                     <div class="glass-panel home-card" onclick="navTo('prof')">
@@ -1710,14 +1779,13 @@
                 opt_hint2: '页面内容更正请联系：',
                 
                 // 主页
-                hero_title: 'AI驱动的',
-                hero_highlight: '脑疾病精准诊疗',
+                hero_title: 'Lab of Artificial Intelligence for',
+                hero_highlight: 'Precision Therapeutics of brain Disorders',
                 hero_subtitle1: '',
                 hero_subtitle2: '我们的愿景：推动脑疾病诊疗迈入精准医学时代',
                 hero_intro: 'PI: 吴畏，上海交通大学特聘教授、博导，医学院资深研究员，国家高层次领军人才',
                 hero_email: '邮箱:',
                 hero_research: '研究方向: AI驱动的脑疾病精准诊疗及临床转化、脑信号处理与机器学习',
-                
                 home_card1: '课题组组长 吴畏',
                 home_card1_desc: '课题组组长吴畏，Alto Neuroscience（纽交所上市）联合创始人。',
                 home_card2: '研究领域',
@@ -1825,14 +1893,13 @@
                 opt_hint2: 'For content corrections, please contact: ',
                 
                 // Homepage
-                hero_title: 'AI-Driven',
-                hero_highlight: 'Precise Brain Disease Diagnosis & Treatment',
+                hero_title: 'Lab of Artificial Intelligence for',
+                hero_highlight: 'Precision Therapeutics of brain Disorders',
                 hero_subtitle1: '',
                 hero_subtitle2: 'Our vision: Advancing brain disease diagnosis and treatment into the era of precision medicine',
                 hero_intro: 'Prof. Wei Wu, Distinguished Professor and PhD Supervisor, Senior Researcher, School of Medicine, Shanghai Jiao Tong University, National Leading Talent',
                 hero_email: 'Email: ',
                 hero_research: 'Research: AI-driven precise diagnosis and treatment of brain diseases with clinical translation, brain signal processing and machine learning',
-                
                 home_card1: 'Lab Director Wei Wu',
                 home_card1_desc: 'Lab Director Wei Wu, Co-founder of Alto Neuroscience (NYSE-listed).',
                 home_card2: 'Research Areas',
