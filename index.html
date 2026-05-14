@@ -1394,7 +1394,7 @@
                 DECODE <span>Lab</span>
             </div>
             <div class="nav-links">
-                <a class="nav-link" onclick="navTo('prof')" data-i18n="nav_prof">吴畏 教授</a>
+                <a class="nav-link" onclick="navTo('prof')" data-i18n="nav_prof">P I</a>
                 <a class="nav-link" onclick="navTo('research')" data-i18n="nav_research">研究方向</a>
                 <a class="nav-link" onclick="navTo('pubs')" data-i18n="nav_pubs">代表性论文</a>
                 <a class="nav-link" onclick="navTo('team')" data-i18n="nav_team">团队与相册</a>
@@ -1435,7 +1435,7 @@
 
         <div id="section-dots" aria-label="页面分段导航">
             <button class="section-dot active" data-section="home" onclick="navTo('home')" aria-label="首页"></button>
-            <button class="section-dot" data-section="prof" onclick="navTo('prof')" aria-label="吴畏教授"></button>
+            <button class="section-dot" data-section="prof" onclick="navTo('prof')" aria-label="P I"></button>
             <button class="section-dot" data-section="research" onclick="navTo('research')" aria-label="研究方向"></button>
             <button class="section-dot" data-section="pubs" onclick="navTo('pubs')" aria-label="代表性成果"></button>
             <button class="section-dot" data-section="team" onclick="navTo('team')" aria-label="团队与相册"></button>
@@ -1451,8 +1451,7 @@
                     <p class="hero-subtitle" data-i18n="hero_subtitle2" style="font-size: calc(1.95rem * var(--font-scale)); font-weight: 700; color: var(--primary-glow); margin-top: 18px; margin-bottom: 30px; letter-spacing: 0.3px; text-shadow: 0 6px 18px rgba(0,229,255,0.12);">我们的愿景: 推动脑疾病诊疗迈入精准医学时代</p>
                     <p class="hero-subtitle" style="margin-top: 0px; font-size: calc(1.28rem * var(--font-scale)); color: var(--text-sub);">
                         <span data-i18n="hero_intro">PI: 吴畏，上海交通大学特聘教授、博导，医学院资深研究员，国家高层次领军人才</span><br>
-                        <span data-i18n="hero_email">邮箱:</span> weiwuneuro@sjtu.edu.cn<br>
-                        <span data-i18n="hero_research">研究方向: AI驱动的脑疾病精准诊疗及临床转化、脑信号处理与机器学习</span>
+                        <span data-i18n="hero_email">邮箱:</span> weiwuneuro@sjtu.edu.cn
                     </p>
                 </div>
                 <div class="glass-panel home-featured">
@@ -1461,10 +1460,6 @@
                     </div>
                 </div>
                 <div class="home-grid">
-                    <div class="glass-panel home-card" onclick="navTo('prof')">
-                        <h3 data-i18n="home_card1">课题组组长 吴畏</h3>
-                        <p class="home-card-desc" data-i18n="home_card1_desc">课题组组长吴畏，Alto Neuroscience（纽交所上市）联合创始人。</p>
-                    </div>
                     <div class="glass-panel home-card" onclick="navTo('research')">
                         <h3 data-i18n="home_card2">研究领域</h3>
                         <p class="home-card-desc" data-i18n="home_card2_desc">精神疾病预测、脑电/脑磁解码、临床转化医学。</p>
@@ -1472,6 +1467,10 @@
                     <div class="glass-panel home-card" onclick="navTo('pubs')">
                         <h3 data-i18n="home_card3">高水平成果</h3>
                         <p class="home-card-desc" data-i18n="home_card3_desc">发表多篇 Nature 及其子刊、Science Translational Medicine 等顶刊。</p>
+                    </div>
+                    <div class="glass-panel home-card" onclick="navTo('contact')">
+                        <h3 data-i18n="home_card_recruit">加入我们</h3>
+                        <p class="home-card-desc" data-i18n="home_card_recruit_desc">课题组长期招收硕博连读生、博士生、博士后及科研助理。</p>
                     </div>
                 </div>
             </section>
@@ -1498,7 +1497,8 @@
 
             <section id="research" class="page-section">
                 <div class="glass-panel">
-                    <h2 class="section-title" data-i18n="research_title">现有研究方向</h2>
+                    <h2 class="section-title" style="margin-bottom: 20px;" data-i18n="research_title">现有研究方向</h2>
+                    <p style="color:var(--text-sub); line-height: 1.8; margin-top: 0; margin-bottom: 30px; font-size: calc(1.05rem * var(--font-scale));" data-i18n="hero_research">研究方向: AI驱动的脑疾病精准诊疗及临床转化、脑信号处理与机器学习</p>
                     <div class="research-grid">
                         <div class="research-card" tabindex="0" role="button" aria-label="研究方向1 脑电解码算法">
                             <div class="research-card-frame">
@@ -1760,7 +1760,7 @@
         const translations = {
             zh: {
                 // 导航栏
-                nav_prof: '吴畏 教授',
+                nav_prof: 'P I',
                 nav_research: '研究方向',
                 nav_pubs: '代表性论文',
                 nav_team: '团队与相册',
@@ -1792,6 +1792,8 @@
                 home_card2_desc: '精神疾病预测、脑电/脑磁解码、临床转化医学。',
                 home_card3: '高水平成果',
                 home_card3_desc: '发表多篇 Nature 及其子刊、Science Translational Medicine 等顶刊。',
+                home_card_recruit: '加入我们',
+                home_card_recruit_desc: '课题组长期招收硕博连读生、博士生、博士后及科研助理。',
                 
                 // 吴畏教授页面
                 prof_name: '吴 畏',
@@ -1874,7 +1876,7 @@
             },
             en: {
                 // Navigation
-                nav_prof: 'Prof. Wei Wu',
+                nav_prof: 'P I',
                 nav_research: 'Research',
                 nav_pubs: 'Publications',
                 nav_team: 'Team & Gallery',
@@ -1906,6 +1908,8 @@
                 home_card2_desc: 'Prediction of psychiatric disorders, EEG/MEG decoding, clinical translation.',
                 home_card3: 'High-Impact Research',
                 home_card3_desc: 'Published in Nature, its sister journals, Science Translational Medicine, and other top journals.',
+                home_card_recruit: 'Join Us',
+                home_card_recruit_desc: 'Recruiting full-time Master students, PhD students, Postdocs, and RAs.',
                 
                 // Prof. Wu Page
                 prof_name: 'Wei Wu',
