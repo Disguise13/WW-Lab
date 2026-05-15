@@ -1089,7 +1089,8 @@
         }
         .pub-cover-row {
             display: grid;
-            grid-template-columns: repeat(49, 180px);
+            grid-auto-flow: column;
+            grid-auto-columns: 180px;
             gap: 14px;
             overflow-x: auto;
             overflow-y: hidden;
@@ -1252,7 +1253,7 @@
             .media-block { grid-template-columns: 1fr; }
             .media-image { min-height: 170px; }
             .research-grid { grid-template-columns: 1fr; }
-            .pub-cover-row { grid-template-columns: repeat(7, 160px); gap: 12px; }
+            .pub-cover-row { grid-auto-columns: 160px; gap: 12px; }
             .recruitment-grid { grid-template-columns: 1fr; }
             .gallery-grid { grid-auto-columns: 46vw; gap: 12px; padding: 0; overflow-x: auto; max-width: 100%; }
             .gallery-item { aspect-ratio: 1 / 1; min-width: unset; width: 100%; }
@@ -1281,7 +1282,7 @@
             .research-grid { grid-template-columns: 1fr; gap: 12px; }
             .research-card { padding: 10px; }
             .research-card-caption { font-size: calc(0.92rem * var(--font-scale)); }
-            .pub-cover-row { grid-template-columns: repeat(7, 140px); gap: 10px; }
+            .pub-cover-row { grid-auto-columns: 78vw; gap: 10px; padding-left: 10px; padding-right: 10px; }
             #section-dots { display: none; }
         }
 
@@ -1450,7 +1451,7 @@
             <section id="home" class="page-section active">
                 <div class="glass-panel" style="border:none; box-shadow:none; background:transparent; padding:0;">
                     <h1 class="hero-title"><span class="hero-light" data-i18n="hero_title">Lab of Intelligent Algorithms and Precision Therapeutics for</span> <span class="hero-bold" data-i18n="hero_highlight">Brain Disorders</span></h1>
-                    <p style="font-size: calc(1.4rem * var(--font-scale)); color: var(--neon-border); margin-top: 15px; margin-bottom: 30px; font-weight: 400; letter-spacing: 0.05em;">脑疾病智能算法与精准诊疗实验室</p>
+                    <p id="hero-cn-name" style="font-size: calc(1.4rem * var(--font-scale)); color: var(--neon-border); margin-top: 15px; margin-bottom: 30px; font-weight: 400; letter-spacing: 0.05em;">脑疾病智能算法与精准诊疗实验室</p>
                     <svg class="hero-eeg-wave" viewBox="0 0 600 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="分隔线"><line x1="0" y1="30" x2="600" y2="30" fill="none" stroke="var(--neon-border)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></line></svg>
                     <p class="hero-subtitle" data-i18n="hero_subtitle2" style="font-size: calc(1.95rem * var(--font-scale)); font-weight: 700; color: var(--primary-glow); margin-top: 18px; margin-bottom: 30px; letter-spacing: 0.3px; text-shadow: 0 6px 18px rgba(0,229,255,0.12);">我们的愿景: 推动脑疾病诊疗迈入精准医学时代</p>
                     <p class="hero-subtitle" style="margin-top: 0px; font-size: calc(1.28rem * var(--font-scale)); color: var(--text-sub);">
@@ -1977,6 +1978,11 @@
                     }
                 }
             });
+
+            const heroCnName = document.getElementById('hero-cn-name');
+            if (heroCnName) {
+                heroCnName.style.display = lang === 'zh' ? '' : 'none';
+            }
 
             updateLanguageButtons();
         }
@@ -2624,13 +2630,27 @@
             let pubAutoScrollTimer = null;
             const pubScrollSpeed = 2; // 每次滚动2px
             const pubScrollInterval = 30; // 每30ms滚动一次
+            const pubOriginalCards = Array.from(pubCoverRow.querySelectorAll('.pub-cover-card')).slice(0, 7);
+            const pubGroupSize = pubOriginalCards.length;
+
+            if (pubGroupSize > 0 && !pubCoverRow.dataset.loopCloned) {
+                pubCoverRow.dataset.loopCloned = 'true';
+                Array.from(pubCoverRow.querySelectorAll('.pub-cover-card')).forEach((card, index) => {
+                    if (index >= pubGroupSize) card.remove();
+                });
+                pubOriginalCards.forEach((card) => {
+                    const clone = card.cloneNode(true);
+                    clone.setAttribute('aria-hidden', 'true');
+                    pubCoverRow.appendChild(clone);
+                });
+            }
 
             function calcPubGroupWidth() {
                 const first = pubCoverRow.querySelector('.pub-cover-card');
                 const style = window.getComputedStyle(pubCoverRow);
                 const gap = parseFloat(style.gap) || 14;
-                const groupCount = 7;
-                if (first) {
+                const groupCount = pubGroupSize || 1;
+                if (first && pubGroupSize > 0) {
                     const cardW = first.getBoundingClientRect().width;
                     if (cardW > 0) return groupCount * cardW + (groupCount - 1) * gap;
                 }
