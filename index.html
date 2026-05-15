@@ -514,9 +514,9 @@
         }
 
         /* 4. 图片图库网格 */
-        .gallery-grid { display: grid; grid-template-columns: repeat(48, 325px); gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 0px; scrollbar-width: none; }
+        .gallery-grid { display: grid; grid-auto-flow: column; grid-auto-columns: 325px; gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 0px; scrollbar-width: none; }
         .gallery-grid::-webkit-scrollbar { display: none; }
-        .gallery-item { aspect-ratio: 16/9; background: rgba(255,255,255,0.05); border-radius: 10px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--text-sub); transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease, background 0.24s ease; cursor: pointer; min-width: 325px; flex-shrink: 0; }
+        .gallery-item { aspect-ratio: 16/9; background: rgba(255,255,255,0.05); border-radius: 10px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--text-sub); transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease, background 0.24s ease; cursor: pointer; min-width: 0; width: 100%; }
         .gallery-item:hover {
             transform: translateY(-4px);
             border-color: var(--card-hover-border);
@@ -1238,9 +1238,10 @@
         }
 
         @media (max-width: 1024px) {
-            header { padding: 16px 20px; align-items: flex-start; gap: 10px; flex-direction: column; }
-            .nav-links { gap: 14px; flex-wrap: wrap; }
-            .nav-tools { width: 100%; justify-content: flex-end; }
+            header { padding: 16px 20px; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: space-between; }
+            .logo { flex-shrink: 0; }
+            .nav-links { gap: 14px; flex-wrap: wrap; order: 3; width: 100%; justify-content: flex-start; }
+            .nav-tools { width: auto; justify-content: flex-end; order: 2; }
             #content-wrapper { padding: 22px 20px; }
             .glass-panel { padding: 24px; }
             .home-grid { grid-template-columns: 1fr; }
@@ -1251,10 +1252,10 @@
             .media-block { grid-template-columns: 1fr; }
             .media-image { min-height: 170px; }
             .research-grid { grid-template-columns: 1fr; }
-            .pub-cover-row { grid-template-columns: repeat(49, 180px); }
+            .pub-cover-row { grid-template-columns: repeat(7, 160px); gap: 12px; }
             .recruitment-grid { grid-template-columns: 1fr; }
-            .gallery-grid { grid-template-columns: repeat(2, 325px); gap: 14px; }
-            .member-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+            .gallery-grid { grid-auto-columns: 46vw; gap: 12px; padding: 0; overflow-x: auto; max-width: 100%; }
+            .gallery-item { aspect-ratio: 1 / 1; min-width: unset; width: 100%; }
         }
 
         @media (max-width: 640px) {
@@ -1262,23 +1263,25 @@
             .intro-card { padding: 32px 20px; width: calc(100% - 32px); }
             .intro-card h1 { font-size: calc(2rem * var(--font-scale)); letter-spacing: 1.5px; }
             .intro-card p { font-size: calc(1rem * var(--font-scale)); letter-spacing: 1px; }
-            .pub-cover-row { grid-template-columns: repeat(49, 180px); gap: 14px; overflow-x: auto; }
-            .logo { font-size: calc(1.1rem * var(--font-scale)); }
-            .nav-link { font-size: calc(0.92rem * var(--font-scale)); }
-            .btn-home, .btn-menu { font-size: calc(0.9rem * var(--font-scale)); }
-            .lang-btn { font-size: calc(0.8rem * var(--font-scale)); padding: 4px 8px; }
+            .logo { font-size: calc(1.1rem * var(--font-scale)); margin-bottom: 8px; width: 100%; }
+            .nav-links { font-size: calc(0.92rem * var(--font-scale)); order: 3; width: 100%; margin-top: 8px; }
+            .nav-link { font-size: calc(0.88rem * var(--font-scale)); padding: 6px 8px; }
+            .btn-home, .btn-menu { font-size: calc(0.85rem * var(--font-scale)); padding: 4px 10px; }
+            .lang-btn { font-size: calc(0.75rem * var(--font-scale)); padding: 3px 6px; }
             .btn-theme-switch { width: 34px; height: 34px; }
             .options-panel { width: min(94vw, 260px); right: 0; }
             .section-title { font-size: calc(1.5rem * var(--font-scale)); }
+            .hero-title { font-size: calc(1.8rem * var(--font-scale)); }
             .prof-avatar { width: 180px; }
-            .gallery-grid { grid-template-columns: repeat(2, 250px); gap: 10px; }
-            .gallery-item { aspect-ratio: 1 / 1; min-width: 250px; }
+            .gallery-grid { grid-auto-columns: 78vw; gap: 12px; padding: 0 10px; max-width: 100%; overflow-x: auto; }
+            .gallery-item { aspect-ratio: 1 / 1; min-width: unset; width: 100%; }
             .member-grid { grid-template-columns: repeat(2, minmax(130px, 1fr)); gap: 10px; }
             .member-card { padding: 8px; }
             .media-image { min-height: 130px; }
             .research-grid { grid-template-columns: 1fr; gap: 12px; }
             .research-card { padding: 10px; }
             .research-card-caption { font-size: calc(0.92rem * var(--font-scale)); }
+            .pub-cover-row { grid-template-columns: repeat(7, 140px); gap: 10px; }
             #section-dots { display: none; }
         }
 
@@ -1446,7 +1449,8 @@
             
             <section id="home" class="page-section active">
                 <div class="glass-panel" style="border:none; box-shadow:none; background:transparent; padding:0;">
-                    <h1 class="hero-title"><span class="hero-light" data-i18n="hero_title">Lab of Artificial Intelligence for</span> <span class="hero-bold" data-i18n="hero_highlight">Precision Therapeutics of brain Disorders</span></h1>
+                    <h1 class="hero-title"><span class="hero-light" data-i18n="hero_title">Lab of Intelligent Algorithms and Precision Therapeutics for</span> <span class="hero-bold" data-i18n="hero_highlight">Brain Disorders</span></h1>
+                    <p style="font-size: calc(1.4rem * var(--font-scale)); color: var(--neon-border); margin-top: 15px; margin-bottom: 30px; font-weight: 400; letter-spacing: 0.05em;">脑疾病智能算法与精准诊疗实验室</p>
                     <svg class="hero-eeg-wave" viewBox="0 0 600 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="分隔线"><line x1="0" y1="30" x2="600" y2="30" fill="none" stroke="var(--neon-border)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></line></svg>
                     <p class="hero-subtitle" data-i18n="hero_subtitle2" style="font-size: calc(1.95rem * var(--font-scale)); font-weight: 700; color: var(--primary-glow); margin-top: 18px; margin-bottom: 30px; letter-spacing: 0.3px; text-shadow: 0 6px 18px rgba(0,229,255,0.12);">我们的愿景: 推动脑疾病诊疗迈入精准医学时代</p>
                     <p class="hero-subtitle" style="margin-top: 0px; font-size: calc(1.28rem * var(--font-scale)); color: var(--text-sub);">
@@ -1619,42 +1623,8 @@
                         <div class="gallery-item lightbox-trigger" data-lightbox-title="莫干山团建" data-lightbox-image="课题组合照 莫干山团建.jpg"><img src="课题组合照 莫干山团建.jpg" alt="莫干山团建"></div>
                         <div class="gallery-item lightbox-trigger" data-lightbox-title="课题组聚餐" data-lightbox-image="课题组合照 课题组聚餐.jpg"><img src="课题组合照 课题组聚餐.jpg" alt="课题组聚餐"></div>
                         <div class="gallery-item lightbox-trigger" data-lightbox-title="采集脑电" data-lightbox-image="课题组合照 采集脑电.jpg"><img src="课题组合照 采集脑电.jpg" alt="采集脑电"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="奉贤会议" data-lightbox-image="课题组合照 奉贤会议.jpg"><img src="课题组合照 奉贤会议.jpg" alt="奉贤会议"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="徐汇校区" data-lightbox-image="课题组合照 徐汇校区.jpg"><img src="课题组合照 徐汇校区.jpg" alt="徐汇校区"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="智能神经调控与脑机接口峰会" data-lightbox-image="课题组合照 智能神经调控与脑机接口峰会.jpg"><img src="课题组合照 智能神经调控与脑机接口峰会.jpg" alt="智能神经调控与脑机接口峰会"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="特别的生日" data-lightbox-image="课题组合照 特别的生日.jpg"><img src="课题组合照 特别的生日.jpg" alt="特别的生日"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="莫干山团建" data-lightbox-image="课题组合照 莫干山团建.jpg"><img src="课题组合照 莫干山团建.jpg" alt="莫干山团建"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="课题组聚餐" data-lightbox-image="课题组合照 课题组聚餐.jpg"><img src="课题组合照 课题组聚餐.jpg" alt="课题组聚餐"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="采集脑电" data-lightbox-image="课题组合照 采集脑电.jpg"><img src="课题组合照 采集脑电.jpg" alt="采集脑电"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="奉贤会议" data-lightbox-image="课题组合照 奉贤会议.jpg"><img src="课题组合照 奉贤会议.jpg" alt="奉贤会议"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="徐汇校区" data-lightbox-image="课题组合照 徐汇校区.jpg"><img src="课题组合照 徐汇校区.jpg" alt="徐汇校区"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="智能神经调控与脑机接口峰会" data-lightbox-image="课题组合照 智能神经调控与脑机接口峰会.jpg"><img src="课题组合照 智能神经调控与脑机接口峰会.jpg" alt="智能神经调控与脑机接口峰会"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="特别的生日" data-lightbox-image="课题组合照 特别的生日.jpg"><img src="课题组合照 特别的生日.jpg" alt="特别的生日"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="莫干山团建" data-lightbox-image="课题组合照 莫干山团建.jpg"><img src="课题组合照 莫干山团建.jpg" alt="莫干山团建"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="课题组聚餐" data-lightbox-image="课题组合照 课题组聚餐.jpg"><img src="课题组合照 课题组聚餐.jpg" alt="课题组聚餐"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="采集脑电" data-lightbox-image="课题组合照 采集脑电.jpg"><img src="课题组合照 采集脑电.jpg" alt="采集脑电"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="奉贤会议" data-lightbox-image="课题组合照 奉贤会议.jpg"><img src="课题组合照 奉贤会议.jpg" alt="奉贤会议"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="徐汇校区" data-lightbox-image="课题组合照 徐汇校区.jpg"><img src="课题组合照 徐汇校区.jpg" alt="徐汇校区"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="智能神经调控与脑机接口峰会" data-lightbox-image="课题组合照 智能神经调控与脑机接口峰会.jpg"><img src="课题组合照 智能神经调控与脑机接口峰会.jpg" alt="智能神经调控与脑机接口峰会"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="特别的生日" data-lightbox-image="课题组合照 特别的生日.jpg"><img src="课题组合照 特别的生日.jpg" alt="特别的生日"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="莫干山团建" data-lightbox-image="课题组合照 莫干山团建.jpg"><img src="课题组合照 莫干山团建.jpg" alt="莫干山团建"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="课题组聚餐" data-lightbox-image="课题组合照 课题组聚餐.jpg"><img src="课题组合照 课题组聚餐.jpg" alt="课题组聚餐"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="采集脑电" data-lightbox-image="课题组合照 采集脑电.jpg"><img src="课题组合照 采集脑电.jpg" alt="采集脑电"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="奉贤会议" data-lightbox-image="课题组合照 奉贤会议.jpg"><img src="课题组合照 奉贤会议.jpg" alt="奉贤会议"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="徐汇校区" data-lightbox-image="课题组合照 徐汇校区.jpg"><img src="课题组合照 徐汇校区.jpg" alt="徐汇校区"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="智能神经调控与脑机接口峰会" data-lightbox-image="课题组合照 智能神经调控与脑机接口峰会.jpg"><img src="课题组合照 智能神经调控与脑机接口峰会.jpg" alt="智能神经调控与脑机接口峰会"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="特别的生日" data-lightbox-image="课题组合照 特别的生日.jpg"><img src="课题组合照 特别的生日.jpg" alt="特别的生日"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="莫干山团建" data-lightbox-image="课题组合照 莫干山团建.jpg"><img src="课题组合照 莫干山团建.jpg" alt="莫干山团建"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="课题组聚餐" data-lightbox-image="课题组合照 课题组聚餐.jpg"><img src="课题组合照 课题组聚餐.jpg" alt="课题组聚餐"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="采集脑电" data-lightbox-image="课题组合照 采集脑电.jpg"><img src="课题组合照 采集脑电.jpg" alt="采集脑电"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="奉贤会议" data-lightbox-image="课题组合照 奉贤会议.jpg"><img src="课题组合照 奉贤会议.jpg" alt="奉贤会议"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="徐汇校区" data-lightbox-image="课题组合照 徐汇校区.jpg"><img src="课题组合照 徐汇校区.jpg" alt="徐汇校区"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="智能神经调控与脑机接口峰会" data-lightbox-image="课题组合照 智能神经调控与脑机接口峰会.jpg"><img src="课题组合照 智能神经调控与脑机接口峰会.jpg" alt="智能神经调控与脑机接口峰会"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="特别的生日" data-lightbox-image="课题组合照 特别的生日.jpg"><img src="课题组合照 特别的生日.jpg" alt="特别的生日"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="莫干山团建" data-lightbox-image="课题组合照 莫干山团建.jpg"><img src="课题组合照 莫干山团建.jpg" alt="莫干山团建"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="课题组聚餐" data-lightbox-image="课题组合照 课题组聚餐.jpg"><img src="课题组合照 课题组聚餐.jpg" alt="课题组聚餐"></div>
-                        <div class="gallery-item lightbox-trigger" data-lightbox-title="采集脑电" data-lightbox-image="课题组合照 采集脑电.jpg"><img src="课题组合照 采集脑电.jpg" alt="采集脑电"></div>
                     </div>
+
                 </div>
 
                 <div class="glass-panel">
@@ -1694,7 +1664,7 @@
                         <p style="color:var(--text-sub);" data-i18n="contact_postdoc_desc">提供具有竞争力的薪酬待遇和国际顶尖的科研平台，欢迎具有生物医学工程、计算机科学、统计学等相关背景的博士毕业生联系。</p>
                     </div>
                     <div class="info-list" style="margin-top: 34px;">
-                        <h4 data-i18n="contact_ads_title">招聘广告位</h4>
+                        <h4 data-i18n="contact_ads_title">招聘信息</h4>
                         <div class="recruitment-grid">
                             <a class="recruitment-ad" href="https://www.shsmu.edu.cn/sri/info/1057/2554.htm" target="_blank" rel="noopener noreferrer">
                                 <div class="recruitment-ad-media">
@@ -1773,8 +1743,8 @@
                 opt_hint2: '页面内容更正请联系：',
                 
                 // 主页
-                hero_title: 'Lab of Artificial Intelligence for',
-                hero_highlight: 'Precision Therapeutics of brain Disorders',
+                hero_title: 'Lab of Intelligent Algorithms and Precision Therapeutics for',
+                hero_highlight: 'Brain Disorders',
                 hero_subtitle1: '',
                 hero_subtitle2: '我们的愿景：推动脑疾病诊疗迈入精准医学时代',
                 hero_intro: 'PI: 吴畏，上海交通大学特聘教授、博导，医学院松江研究院资深研究员，国家高层次领军人才',
@@ -1889,8 +1859,8 @@
                 opt_hint2: 'For content corrections, please contact: ',
                 
                 // Homepage
-                hero_title: 'Lab of Artificial Intelligence for',
-                hero_highlight: 'Precision Therapeutics of brain Disorders',
+                hero_title: 'Lab of Intelligent Algorithms and Precision Therapeutics for',
+                hero_highlight: 'Brain Disorders',
                 hero_subtitle1: '',
                 hero_subtitle2: 'Our vision: Advancing brain disease diagnosis and treatment into the era of precision medicine',
                 hero_intro: 'PI: Prof. Wei Wu, Distinguished Professor and PhD Supervisor, Senior Researcher, Songjiang Research Institute, School of Medicine, Shanghai Jiao Tong University, National Leading Talent',
@@ -2163,7 +2133,7 @@
                         (decoded.match(/博士生/g) || []).length,
                         (decoded.match(/硕士生/g) || []).length,
                         (decoded.match(/直博生/g) || []).length,
-                        (decoded.match(/ /g) || []).length * -5
+                        (decoded.match(/�/g) || []).length * -5
                     ].reduce((sum, value) => sum + value, 0);
 
                     if (score > bestScore) {
@@ -2587,13 +2557,24 @@
             let autoScrollTimer = null;
             const scrollSpeed = 2; // 每次滚动2px
             const scrollInterval = 30; // 每30ms滚动一次
+            const galleryOriginalItems = Array.from(galleryGrid.querySelectorAll('.gallery-item'));
+            const galleryGroupSize = galleryOriginalItems.length;
+
+            if (galleryGroupSize > 0 && !galleryGrid.dataset.loopCloned) {
+                galleryGrid.dataset.loopCloned = 'true';
+                galleryOriginalItems.forEach((item) => {
+                    const clone = item.cloneNode(true);
+                    clone.setAttribute('aria-hidden', 'true');
+                    galleryGrid.appendChild(clone);
+                });
+            }
 
             function calcGalleryGroupWidth() {
                 const first = galleryGrid.querySelector('.gallery-item');
                 const style = window.getComputedStyle(galleryGrid);
                 const gap = parseFloat(style.gap || style.columnGap) || 20;
-                const visibleCount = 8; // 隐式一组的图片数
-                if (first) {
+                const visibleCount = galleryGroupSize || 1;
+                if (first && galleryGroupSize > 0) {
                     const cardW = first.getBoundingClientRect().width;
                     if (cardW > 0) return visibleCount * cardW + (visibleCount - 1) * gap;
                 }
