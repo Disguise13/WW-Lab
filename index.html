@@ -1259,30 +1259,75 @@
         }
 
         @media (max-width: 640px) {
-            /* 1. 头部：激活下拉菜单系统 */
-            header { padding: 12px 20px !important; position: relative !important; z-index: 999; }
-            .mobile-menu-btn { display: block; }
-            .nav-links { 
-                display: none !important; 
-                position: absolute; 
-                top: 100%; left: 0; width: 100%; 
-                background: rgba(5, 10, 20, 0.95); 
-                backdrop-filter: blur(20px); 
-                flex-direction: column !important; 
-                padding: 15px 0 25px 0 !important; 
-                border-bottom: 1px solid var(--glass-border);
-                box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            /* ==========================================
+               1. 头部：极简的微吸顶样式，适配亮暗模式
+               ========================================== */
+            header { 
+                padding: 12px 20px !important; 
+                position: relative; 
+                z-index: 1000; 
             }
-            .nav-links.show { display: flex !important; }
-            .nav-link { padding: 12px 20px !important; font-size: calc(1.05rem * var(--font-scale)) !important; text-align: center; }
-            .nav-tools { margin-top: 15px !important; padding-top: 15px !important; border-top: 1px solid rgba(255,255,255,0.08); justify-content: center !important; flex-wrap: wrap; gap: 15px !important; }
+            .mobile-menu-btn { 
+                display: block;
+            } 
+            
+            /* ==========================================
+               2. 现代全屏沉浸式菜单 (Fullscreen Overlay)
+               ========================================== */
+            .nav-links { 
+                display: none !important;
+                position: absolute !important; 
+                top: 100% !important;
+                left: 0 !important; 
+                width: 100vw !important; 
+                height: calc(100vh - 60px) !important;
+                
+                background: var(--bg-color) !important; 
+                
+                flex-direction: column !important; 
+                justify-content: flex-start !important;
+                align-items: center !important;
+                padding: 30px 30px 60px 30px !important; 
+                border: none !important;
+                box-shadow: none !important;
+                z-index: 999;
+                overflow-y: auto;
+            }
+            .nav-links.show { 
+                display: flex !important; 
+                animation: fadeIn 0.3s ease-out; 
+            }
+            
+            .nav-link { 
+                width: 100%;
+                font-size: calc(1.25rem * var(--font-scale)) !important; 
+                font-weight: 500 !important;
+                padding: 18px 0 !important; 
+                border-bottom: 1px solid var(--glass-border) !important;
+                text-align: center;
+                letter-spacing: 1px;
+            }
 
-            /* 2. 全局比例收缩：缩小过大的留白和卡片 */
+            /* ==========================================
+               3. 工具栏：智能沉底，大拇指舒适区
+               ========================================== */
+            .nav-tools { 
+                margin-top: auto !important;
+                width: 100% !important;
+                padding-top: 20px !important; 
+                border-top: none !important; 
+                justify-content: center !important; 
+                flex-wrap: wrap; 
+                gap: 15px !important; 
+            }
+
+            /* ==========================================
+               4. 首页：去除加粗，恢复科研高级感
+               ========================================== */
             #content-wrapper { padding: 15px 15px !important; }
-            .glass-panel { padding: 20px 15px !important; margin-bottom: 20px !important; }
+            .glass-panel { padding: 25px 15px !important; margin-bottom: 20px !important; }
             .section-title { font-size: calc(1.4rem * var(--font-scale)) !important; margin-bottom: 15px !important; }
             
-            /* 3. 首页文字取消加粗，回归精致感 */
             .hero-title { font-size: calc(1.7rem * var(--font-scale)) !important; margin-top: 15px !important; }
             .hero-title .hero-bold { 
                 font-weight: 300 !important; 
@@ -1292,31 +1337,36 @@
                 -webkit-text-stroke: 0 !important; 
                 text-shadow: none !important;
             }
-            #hero-cn-name { font-size: calc(1.5rem * var(--font-scale)) !important; margin-top: 8px !important; margin-bottom: 15px !important; }
+            #hero-cn-name { font-size: calc(1.4rem * var(--font-scale)) !important; margin-top: 8px !important; margin-bottom: 15px !important; }
             .hero-subtitle { font-size: calc(0.95rem * var(--font-scale)) !important; }
 
-            /* 4. 下方三个卡片：完美排成一行 */
+            /* ==========================================
+               5. 卡片系统：完美的单行三宫格
+               ========================================== */
             .home-grid { 
                 display: flex !important; 
                 flex-direction: row !important; 
-                flex-wrap: nowrap !important; 
+                flex-wrap: nowrap !important;
                 gap: 8px !important; 
                 margin-top: 20px !important; 
             }
             .home-card { 
-                flex: 1 !important; 
+                flex: 1 !important;
                 padding: 12px 4px !important; 
-                min-width: 0; 
+                min-width: 0;
             }
             .home-card h3 { 
                 font-size: calc(0.85rem * var(--font-scale)) !important; 
                 margin: 0 !important; 
                 white-space: nowrap !important; 
-                overflow: hidden !important; text-overflow: ellipsis; 
+                overflow: hidden !important; 
+                text-overflow: ellipsis; 
             }
             .home-card-desc { display: none !important; }
 
-            /* 5. 团队及其他页面比例修复 */
+            /* ==========================================
+               其余通用比例修正
+               ========================================== */
             .prof-avatar { width: 140px !important; margin-bottom: 20px !important; }
             .prof-info h2 { font-size: calc(1.8rem * var(--font-scale)) !important; text-align: center; }
             .prof-info p.tags, .prof-info .email { text-align: center; display: block; }
@@ -1324,7 +1374,7 @@
             .member-grid { grid-template-columns: repeat(2, minmax(130px, 1fr)) !important; gap: 10px !important; }
             .research-grid, .recruitment-grid, .media-block { grid-template-columns: 1fr !important; }
             .pub-cover-row { grid-auto-columns: 45vw !important; gap: 10px !important; }
-            .options-panel { right: 50% !important; transform: translateX(50%) !important; width: 90vw !important; }
+            .options-panel { right: 50% !important; transform: translateX(50%) !important; width: 90vw !important; top: auto; bottom: 60px; }
             #section-dots { display: none !important; }
         }
 
