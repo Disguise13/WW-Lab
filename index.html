@@ -425,82 +425,70 @@
         .section-title { font-size: calc(2rem * var(--font-scale)); font-weight: 300; margin-top: 0; margin-bottom: 30px; border-bottom: 1px solid var(--glass-border); padding-bottom: 15px; }
 
         /* === 具体页面排版 === */
-        
-        /* 1. 首页 Hero */
-        .hero-title { font-size: calc(3.0rem * var(--font-scale)); line-height: 1.05; font-weight: 200; margin: 40px 0 20px; position: relative; }
-        .hero-title span { color: var(--neon-border); }
-        .hero-title .hero-light { font-weight: 500; opacity: 0.95; letter-spacing: 1px; }
-        .hero-title .hero-bold { display: inline-block; font-weight: 900 !important; letter-spacing: -0.02em; background: linear-gradient(120deg, var(--neon-border) 0%, rgba(30, 122, 180, 0.9) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; -webkit-text-stroke: 0.4px rgba(0,0,0,0.08); text-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 6px 18px rgba(0,229,255,0.08); }
-        .hero-title .hero-normal { font-weight: 400; }
-        #hero-cn-name {
-            font-size: calc(3.0rem * var(--font-scale));
+
+        /* ----------------------------------
+           全局文字层级系统 (Desktop)
+           ---------------------------------- */
+        .hero-cn-title, .hero-vision {
+            font-size: calc(2.4rem * var(--font-scale));
             color: var(--neon-border);
-            margin-top: 15px;
-            margin-bottom: 30px;
             font-weight: 600;
             letter-spacing: 0.04em;
-            text-shadow: 0 6px 18px rgba(0,229,255,0.08);
+            margin: 0;
+            text-shadow: 0 6px 18px rgba(0,229,255,0.1);
         }
-        .hero-eeg-wave { width: 100%; height: 40px; margin: 1px 0; opacity: 0.4; }
-        .hero-subtitle { font-size: calc(1.6rem * var(--font-scale)); color: var(--text-sub); line-height: 1.72; max-width: 960px; }
-        #home { position: relative; }
-        .home-featured {
-            display: flex;
-            justify-content: center;
-            margin-top: 26px;
-            padding: 0;
-            border: none;
-            background: transparent;
-            box-shadow: none;
-        }
-        .home-featured-media {
-            width: 100%;
-            max-width: 1040px;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--glass-border);
-            background: rgba(255,255,255,0.04);
-            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
-        }
-        .home-featured-media img {
-            display: block;
-            width: 100%;
-            height: auto;
-            max-height: 500px;
-            object-fit: contain;
-            margin: 0 auto;
-        }
-        .home-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
-        .home-card { text-align: center; padding: 30px; cursor: pointer; }
-        .home-card { transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease, background 0.24s ease; }
-        .home-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--card-hover-border);
-            background: var(--card-hover-bg);
-            box-shadow: var(--card-hover-shadow);
-        }
-        .home-card h3 { color: var(--neon-border); font-weight: 400; font-size: calc(1.15rem * var(--font-scale)); }
-        .home-card-desc { color: var(--text-sub); font-size: calc(0.9rem * var(--font-scale)); }
+        .hero-vision { color: var(--primary-glow); }
 
-        /* 2. 吴畏教授简介 */
-        .prof-layout { display: grid; grid-template-columns: 250px 1fr; gap: 40px; }
-        .prof-avatar { width: 100%; max-width: 300px; aspect-ratio: 3/4; background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent); border-radius: 15px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--text-sub); overflow: hidden; margin: 0 auto; }
-        .prof-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 14px; }
-        .prof-info h2 { margin: 0 0 10px; font-size: calc(2.2rem * var(--font-scale)); font-weight: 300;}
-        .prof-info p.tags { color: var(--neon-border); margin-bottom: 20px; font-size: calc(1.1rem * var(--font-scale)); }
-        .prof-info .email { color: var(--text-sub); font-family: monospace; background: rgba(0,0,0,0.18); padding: 5px 10px; border-radius: 5px; font-size: calc(0.98rem * var(--font-scale)); }
-        .prof-info .summary { color: var(--text-sub); line-height: 1.8; margin-top: 20px; font-size: calc(1.02rem * var(--font-scale)); }
-        .achievement-text {
+        .hero-title {
+            font-size: calc(1.8rem * var(--font-scale));
+            line-height: 1.2;
+            font-weight: 300;
             color: var(--text-sub);
-            line-height: 1.9;
-            font-size: calc(1rem * var(--font-scale));
-            font-family: inherit;
-            letter-spacing: 0.01em;
+            margin: 0 0 10px 0;
         }
+
+        .section-title, .prof-info h2 {
+            font-size: calc(2.0rem * var(--font-scale));
+            font-weight: 300;
+            margin: 0 0 25px 0;
+            color: var(--text-main);
+        }
+        .section-title { border-bottom: 1px solid var(--glass-border); padding-bottom: 15px; }
+
+        .home-card h3, .info-list h4, .media-content h4, .team-group h4, .recruitment-ad-copy h5 {
+            font-size: calc(1.2rem * var(--font-scale));
+            font-weight: 500;
+            color: var(--neon-border);
+            margin: 0 0 10px 0;
+        }
+
+        .hero-desc p, .prof-info .summary, .achievement-text, .info-list ul li, .home-card-desc, .recruitment-ad-copy p {
+            font-size: calc(1.02rem * var(--font-scale));
+            line-height: 1.8;
+            color: var(--text-sub);
+            margin: 0;
+        }
+
+        .home-hero-panel { padding: 40px; text-align: center; border: none; box-shadow: none; background: transparent; }
+        .hero-eeg-wave { width: 100%; height: 40px; margin: 15px 0; opacity: 0.4; }
+        .hero-desc { margin-top: 25px; }
+
+        .home-featured { display: flex; justify-content: center; margin-top: 0; padding: 0; border: none; background: transparent; box-shadow: none; }
+        .home-featured-media { width: 100%; max-width: 1040px; border-radius: 16px; overflow: hidden; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.04); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14); }
+        .home-featured-media img { display: block; width: 100%; height: auto; max-height: 500px; object-fit: contain; margin: 0 auto; }
+        .home-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
+        .home-card { text-align: center; padding: 30px; cursor: pointer; transition: all 0.24s ease; }
+        .home-card:hover { transform: translateY(-4px); border-color: var(--card-hover-border); background: var(--card-hover-bg); box-shadow: var(--card-hover-shadow); }
+
+        .prof-layout { display: grid; grid-template-columns: 250px 1fr; gap: 40px; }
+        .prof-avatar { width: 100%; max-width: 300px; aspect-ratio: 3/4; background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent); border-radius: 15px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; overflow: hidden; margin: 0 auto; }
+        .prof-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 14px; }
+        .prof-info p.tags { color: var(--neon-border); margin-bottom: 20px; font-size: calc(1.1rem * var(--font-scale)); line-height: 1.6; margin-top: 0; }
+        .prof-info .email { font-family: monospace; background: rgba(0,0,0,0.18); padding: 5px 10px; border-radius: 5px; font-size: calc(0.98rem * var(--font-scale)); color: var(--text-sub); }
         .info-list { margin-top: 30px; }
-        .info-list h4 { color: var(--text-main); font-size: calc(1.2rem * var(--font-scale)); margin-bottom: 15px; font-weight: 500; border-left: 3px solid var(--primary-glow); padding-left: 10px; }
-        .info-list ul { list-style: none; padding: 0; color: var(--text-sub); line-height: 1.8; font-size: calc(1rem * var(--font-scale)); }
-        .info-list li { margin-bottom: 10px; font-size: calc(1rem * var(--font-scale)); }
+        .info-list h4 { border-left: 3px solid var(--primary-glow); padding-left: 10px; color: var(--text-main); }
+        .info-list ul { list-style: none; padding: 0; }
+        .info-list li { margin-bottom: 10px; }
         .info-list li strong { color: var(--text-main); font-weight: normal; margin-right: 10px; }
 
         /* 3. 论文列表 */
@@ -1322,65 +1310,47 @@
             }
 
             /* ==========================================
-               4. 首页：修复中英文字体比例与间距
+               手机端全局文字层级 & 极简间距系统
                ========================================== */
-            #content-wrapper { padding: 15px 15px !important; }
-            .glass-panel { padding: 25px 15px !important; margin-bottom: 20px !important; }
-            .section-title { font-size: calc(1.4rem * var(--font-scale)) !important; margin-bottom: 15px !important; }
+            #content-wrapper { padding: 10px !important; }
+            .glass-panel { padding: 18px 12px !important; margin-bottom: 15px !important; }
+            
+            .hero-cn-title, .hero-vision { 
+                font-size: calc(1.4rem * var(--font-scale)) !important; 
+            }
             
             .hero-title { 
-                font-size: calc(1.45rem * var(--font-scale)) !important;
-                line-height: 1.3 !important;
-                margin-top: 10px !important; 
-                margin-bottom: 10px !important;
-            }
-            .hero-title .hero-bold { 
-                font-weight: 400 !important; 
-                background: none !important; 
-                -webkit-text-fill-color: var(--neon-border) !important; 
-                color: var(--neon-border) !important;
-                -webkit-text-stroke: 0 !important; 
-                text-shadow: none !important;
-            }
-            
-            #hero-cn-name { 
-                font-size: calc(1.35rem * var(--font-scale)) !important;
-                margin-top: 10px !important; 
-                margin-bottom: 12px !important; 
-            }
-            
-            .hero-eeg-wave {
-                height: 30px !important;
-                margin: 5px 0 15px 0 !important;
+                font-size: calc(1.15rem * var(--font-scale)) !important; 
+                line-height: 1.3 !important; 
+                margin-bottom: 4px !important;
             }
 
-            p.hero-subtitle[data-i18n="hero_subtitle2"] {
-                font-size: calc(1.05rem * var(--font-scale)) !important;
-                line-height: 1.5 !important;
-                margin-top: 15px !important;
-                margin-bottom: 20px !important;
+            .section-title, .prof-info h2 { 
+                font-size: calc(1.3rem * var(--font-scale)) !important; 
+                margin-bottom: 15px !important;
             }
-            p.hero-subtitle:not([data-i18n="hero_subtitle2"]) {
+
+            .info-list h4, .media-content h4, .team-group h4, .recruitment-ad-copy h5 { 
+                font-size: calc(1.05rem * var(--font-scale)) !important; 
+            }
+
+            .hero-desc p, .prof-info .summary, .achievement-text, .info-list ul li, .recruitment-ad-copy p {
                 font-size: calc(0.9rem * var(--font-scale)) !important;
-                line-height: 1.75 !important;
-                text-align: justify !important;
+                line-height: 1.6 !important;
             }
 
-            /* ==========================================
-               5. 卡片系统：完美的单行三宫格
-               ========================================== */
+            .home-hero-panel { padding: 10px !important; }
+            .hero-eeg-wave { height: 20px !important; margin: 8px 0 !important; }
+            .hero-desc { margin-top: 15px !important; }
+
             .home-grid { 
                 display: flex !important; 
                 flex-direction: row !important; 
-                flex-wrap: nowrap !important;
+                flex-wrap: nowrap !important; 
                 gap: 8px !important; 
-                margin-top: 20px !important; 
+                margin-top: 15px !important; 
             }
-            .home-card { 
-                flex: 1 !important;
-                padding: 12px 4px !important; 
-                min-width: 0;
-            }
+            .home-card { flex: 1 !important; padding: 12px 4px !important; min-width: 0; }
             .home-card h3 { 
                 font-size: calc(0.85rem * var(--font-scale)) !important; 
                 margin: 0 !important; 
@@ -1390,58 +1360,20 @@
             }
             .home-card-desc { display: none !important; }
 
-            /* ==========================================
-               6. PI 教授简介：手机端改为上下单列居中排版
-               ========================================== */
-            .prof-layout { 
-                display: flex !important; 
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 15px !important; 
-            }
-            .prof-avatar { 
-                width: 160px !important;
-                margin: 0 auto !important; 
-            }
-            .prof-info { 
-                width: 100% !important; 
-                display: flex !important;
-                flex-direction: column !important;
-            }
-            .prof-info h2 { 
-                font-size: calc(2rem * var(--font-scale)) !important; 
-                text-align: center !important; 
-                margin-bottom: 5px !important;
-            }
-            .prof-info p.tags { 
-                text-align: center !important; 
-                font-size: calc(0.95rem * var(--font-scale)) !important; 
-                line-height: 1.6 !important;
-                margin-bottom: 12px !important;
-            }
-            .prof-info .email { 
-                text-align: center !important; 
-                font-size: calc(0.85rem * var(--font-scale)) !important; 
-                margin: 0 auto 20px auto !important;
-                display: table !important;
-                word-break: break-all !important;
-            }
-            .prof-info .summary, .achievement-text, .info-list ul li { 
-                text-align: left !important; 
-                font-size: calc(0.95rem * var(--font-scale)) !important; 
-                line-height: 1.7 !important; 
-            }
-            .info-list h4 {
-                font-size: calc(1.1rem * var(--font-scale)) !important;
-                margin-top: 15px !important;
-            }
+            .prof-layout { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 10px !important; }
+            .prof-avatar { width: 130px !important; margin-bottom: 5px !important; }
+            .prof-info { width: 100% !important; display: flex !important; flex-direction: column !important; }
+            .prof-info p.tags { text-align: center !important; font-size: calc(0.9rem * var(--font-scale)) !important; margin-bottom: 10px !important; }
+            .prof-info .email { text-align: center !important; font-size: calc(0.8rem * var(--font-scale)) !important; margin: 0 auto 15px auto !important; display: table !important; }
+            .prof-info .summary, .achievement-text, .info-list ul li { text-align: left !important; }
 
-            /* ==========================================
-               其余通用比例修正
-               ========================================== */
+            .map-address { font-size: calc(0.85rem * var(--font-scale)) !important; }
+            .map-link { font-size: calc(0.85rem * var(--font-scale)) !important; padding: 4px 10px !important; }
+            .map-frame::after { font-size: calc(0.8rem * var(--font-scale)) !important; padding: 4px 8px !important; bottom: 8px !important; left: 8px !important; }
+
             .gallery-grid { grid-auto-columns: 85vw !important; gap: 10px !important; }
             .member-grid { grid-template-columns: repeat(2, minmax(130px, 1fr)) !important; gap: 10px !important; }
-            .research-grid, .recruitment-grid, .media-block { grid-template-columns: 1fr !important; }
+            .research-grid, .recruitment-grid, .media-block { grid-template-columns: 1fr !important; gap: 12px !important; }
             .pub-cover-row { grid-auto-columns: 45vw !important; gap: 10px !important; }
             .options-panel { right: 50% !important; transform: translateX(50%) !important; width: 90vw !important; top: auto; bottom: 60px; }
             #section-dots { display: none !important; }
@@ -1611,15 +1543,19 @@
         <main id="content-wrapper">
             
             <section id="home" class="page-section active">
-                <div class="glass-panel" style="border:none; box-shadow:none; background:transparent; padding:0;">
-                    <h1 class="hero-title"><span class="hero-light" data-i18n="hero_title">Lab of Intelligent Algorithms and Precision Therapeutics for Brain Disorders</span></h1>
-                    <p id="hero-cn-name">脑疾病智能算法与精准诊疗实验室</p>
+                <div class="glass-panel home-hero-panel">
+                    <div class="hero-title"><span class="hero-light" data-i18n="hero_title">Lab of Intelligent Algorithms and Precision Therapeutics for Brain Disorders</span></div>
+                    
+                    <h1 id="hero-cn-name" class="hero-cn-title">脑疾病智能算法与精准诊疗实验室</h1>
+                    
                     <svg class="hero-eeg-wave" viewBox="0 0 600 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="分隔线"><line x1="0" y1="30" x2="600" y2="30" fill="none" stroke="var(--neon-border)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></line></svg>
-                    <p class="hero-subtitle" data-i18n="hero_subtitle2" style="font-size: calc(1.95rem * var(--font-scale)); font-weight: 700; color: var(--primary-glow); margin-top: 18px; margin-bottom: 30px; letter-spacing: 0.3px; text-shadow: 0 6px 18px rgba(0,229,255,0.12);">我们的愿景: 推动脑疾病诊疗迈入精准医学时代</p>
-                    <p class="hero-subtitle" style="margin-top: 0px; font-size: calc(1.28rem * var(--font-scale)); color: var(--text-sub);">
-                        <span data-i18n="hero_intro">吴畏，上海交通大学特聘教授、博导，医学院松江研究院资深研究员；蚌埠医科大学特聘教授；国家高层次领军人才</span><br>
-                        <span data-i18n="hero_email">邮箱:</span> weiwuneuro@sjtu.edu.cn
-                    </p>
+                    
+                    <h1 class="hero-vision" data-i18n="hero_subtitle2">我们的愿景: 推动脑疾病诊疗迈入精准医学时代</h1>
+                    
+                    <div class="hero-desc">
+                        <p><span data-i18n="hero_intro">吴畏，上海交通大学特聘教授、博导，医学院松江研究院资深研究员；蚌埠医科大学特聘教授；国家高层次领军人才</span></p>
+                        <p style="margin-top: 6px;"><span data-i18n="hero_email">邮箱:</span> weiwuneuro@sjtu.edu.cn</p>
+                    </div>
                 </div>
                 <div class="glass-panel home-featured">
                     <div class="home-featured-media">
