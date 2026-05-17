@@ -1271,67 +1271,98 @@
         }
 
         @media (max-width: 640px) {
-            /* 1. 导航栏完美分两行 */
-            header { padding: 12px 15px; }
+            /* =======================================
+               任务1：顶部菜单栏大改（分两行、大幅增加点击热区）
+               ======================================= */
+            header { 
+                padding: 10px 15px !important; 
+                flex-direction: column !important; 
+                align-items: stretch !important;
+            }
+            .logo { 
+                width: 100% !important; 
+                justify-content: center !important; 
+                margin-bottom: 10px !important; 
+            }
             .nav-links { 
-                flex-wrap: wrap;
-                gap: 8px 0;
-                margin-top: 10px;
+                width: 100% !important; 
+                display: flex !important;
+                flex-wrap: wrap !important; 
+                justify-content: space-between !important; 
+                gap: 0 !important; 
+                margin: 0 !important;
             }
             .nav-link { 
-                flex: 1;
-                text-align: center;
-                font-size: calc(0.9rem * var(--font-scale)); 
-                padding: 6px 0;
-                white-space: nowrap;
+                flex: 1 1 auto !important; 
+                text-align: center !important;
+                font-size: calc(0.95rem * var(--font-scale)) !important; 
+                padding: 12px 2px !important; 
+                white-space: nowrap !important;
             }
             .nav-tools { 
-                width: 100%;
-                justify-content: flex-end;
-                margin-top: 8px;
-                padding-top: 10px;
-                border-top: 1px solid rgba(255,255,255,0.08);
+                width: 100% !important; 
+                justify-content: flex-end !important; 
+                margin-top: 5px !important;
+                padding-top: 15px !important;
+                border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
             }
-            .btn-home, .btn-menu { font-size: calc(0.85rem * var(--font-scale)); padding: 4px 10px; }
-            .lang-btn { font-size: calc(0.75rem * var(--font-scale)); padding: 3px 6px; }
-            .btn-theme-switch { width: 32px; height: 32px; }
+            .btn-home, .btn-menu { padding: 6px 12px !important; font-size: calc(0.9rem * var(--font-scale)) !important; }
+            .lang-btn { font-size: calc(0.75rem * var(--font-scale)) !important; padding: 4px 8px !important; }
 
-            /* 2. 英文标题彻底取消加粗 */
-            .hero-title { font-size: calc(1.6rem * var(--font-scale)); }
+            /* =======================================
+               任务2：手机端英文标题彻底取消加粗
+               ======================================= */
+            .hero-title { font-size: calc(1.7rem * var(--font-scale)) !important; }
             .hero-title .hero-bold { 
-                font-weight: 400 !important;
-                -webkit-text-stroke: 0 !important;
+                font-weight: 300 !important; 
+                background: none !important; 
+                -webkit-text-fill-color: var(--neon-border) !important; 
+                color: var(--neon-border) !important;
+                -webkit-text-stroke: 0 !important; 
                 text-shadow: none !important;
             }
-            #hero-cn-name { font-size: calc(1.6rem * var(--font-scale)); margin-top: 8px; margin-bottom: 15px; }
-            
-            /* 3. 三个卡片强行挤在一行 */
+            #hero-cn-name { font-size: calc(1.6rem * var(--font-scale)) !important; margin-top: 8px !important; margin-bottom: 15px !important; }
+
+            /* =======================================
+               任务3：下方三个卡片强行排成一行
+               ======================================= */
             .home-grid { 
-                grid-template-columns: repeat(3, 1fr);
-                gap: 6px;
-                margin-top: 20px;
+                display: flex !important; 
+                flex-direction: row !important;
+                flex-wrap: nowrap !important; 
+                gap: 8px !important; 
+                margin-top: 20px !important;
+                padding: 0 !important;
             }
-            .home-card { padding: 12px 6px; }
+            .home-card { 
+                flex: 1 !important; 
+                padding: 15px 4px !important; 
+                min-width: 0 !important; 
+            }
             .home-card h3 { 
-                font-size: calc(0.82rem * var(--font-scale));
-                margin-bottom: 6px;
-                white-space: nowrap;
+                font-size: calc(0.85rem * var(--font-scale)) !important; 
+                margin-bottom: 6px !important; 
+                white-space: nowrap !important; 
+                overflow: hidden !important; 
+                text-overflow: ellipsis !important; 
             }
             .home-card-desc { 
-                font-size: calc(0.68rem * var(--font-scale));
-                line-height: 1.4;
-                display: -webkit-box;
-                -webkit-line-clamp: 3;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
+                font-size: calc(0.7rem * var(--font-scale)) !important; 
+                line-height: 1.4 !important; 
+                display: -webkit-box !important; 
+                -webkit-line-clamp: 3 !important; 
+                -webkit-box-orient: vertical !important; 
+                overflow: hidden !important; 
+                white-space: normal !important;
             }
 
-            /* 原有 640px 媒体查询里的其余代码 */
+            /* =======================================
+               其余移动端基础适配（保持不变）
+               ======================================= */
             .home-featured { padding: 10px; }
             .intro-card { padding: 32px 20px; width: calc(100% - 32px); }
             .intro-card h1 { font-size: calc(2rem * var(--font-scale)); letter-spacing: 1.5px; }
             .intro-card p { font-size: calc(1rem * var(--font-scale)); letter-spacing: 1px; }
-            .logo { font-size: calc(1.1rem * var(--font-scale)); margin-bottom: 8px; width: 100%; }
             .options-panel { width: min(94vw, 260px); right: 0; }
             .section-title { font-size: calc(1.5rem * var(--font-scale)); }
             .prof-avatar { width: 180px; }
