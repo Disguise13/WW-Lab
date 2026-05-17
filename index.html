@@ -385,7 +385,7 @@
         #content-wrapper::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
 
         /* 页面切换动画类 */
-        .page-section { display: none; max-width: 1200px; margin: 0 auto; animation: fadeUp 0.58s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .page-section { display: none; max-width: 1480px; margin: 0 auto; animation: fadeUp 0.58s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .page-section.active { display: block; }
         .page-section.anim-from-next { animation: slideFromBottom 0.58s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .page-section.anim-from-prev { animation: slideFromTop 0.58s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -416,12 +416,21 @@
         /* === 具体页面排版 === */
         
         /* 1. 首页 Hero */
-        .hero-title { font-size: calc(3rem * var(--font-scale)); font-weight: 200; margin: 40px 0 20px; position: relative; }
+        .hero-title { font-size: calc(3.6rem * var(--font-scale)); line-height: 1.05; font-weight: 200; margin: 40px 0 20px; position: relative; }
         .hero-title span { color: var(--neon-border); }
-        .hero-title .hero-light { font-weight: 200; opacity: 0.8; }
-        .hero-title .hero-bold { font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(120deg, var(--neon-border) 0%, rgba(30, 122, 180, 0.9) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-title .hero-light { font-weight: 500; opacity: 0.95; letter-spacing: 1px; }
+        .hero-title .hero-bold { display: inline-block; font-weight: 900 !important; letter-spacing: -0.02em; background: linear-gradient(120deg, var(--neon-border) 0%, rgba(30, 122, 180, 0.9) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; -webkit-text-stroke: 0.4px rgba(0,0,0,0.08); text-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 6px 18px rgba(0,229,255,0.08); }
         .hero-title .hero-normal { font-weight: 400; }
-        .hero-eeg-wave { width: 100%; height: 60px; margin: 20px 0; opacity: 0.4; }
+        #hero-cn-name {
+            font-size: calc(2.4rem * var(--font-scale));
+            color: var(--neon-border);
+            margin-top: 15px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-shadow: 0 6px 18px rgba(0,229,255,0.08);
+        }
+        .hero-eeg-wave { width: 100%; height: 40px; margin: 1px 0; opacity: 0.4; }
         .hero-subtitle { font-size: calc(1.6rem * var(--font-scale)); color: var(--text-sub); line-height: 1.72; max-width: 960px; }
         #home { position: relative; }
         .home-featured {
@@ -1450,8 +1459,8 @@
             
             <section id="home" class="page-section active">
                 <div class="glass-panel" style="border:none; box-shadow:none; background:transparent; padding:0;">
-                    <h1 class="hero-title"><span class="hero-light" data-i18n="hero_title">Lab of Intelligent Algorithms and Precision Therapeutics for</span> <span class="hero-bold" data-i18n="hero_highlight">Brain Disorders</span></h1>
-                    <p id="hero-cn-name" style="font-size: calc(1.4rem * var(--font-scale)); color: var(--neon-border); margin-top: 15px; margin-bottom: 30px; font-weight: 400; letter-spacing: 0.05em;">脑疾病智能算法与精准诊疗实验室</p>
+                    <h1 class="hero-title"><span class="hero-light" data-i18n="hero_title">Lab of Intelligent Algorithms and Precision Therapeutics for Brain Disorders</span></h1>
+                    <p id="hero-cn-name">脑疾病智能算法与精准诊疗实验室</p>
                     <svg class="hero-eeg-wave" viewBox="0 0 600 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="分隔线"><line x1="0" y1="30" x2="600" y2="30" fill="none" stroke="var(--neon-border)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></line></svg>
                     <p class="hero-subtitle" data-i18n="hero_subtitle2" style="font-size: calc(1.95rem * var(--font-scale)); font-weight: 700; color: var(--primary-glow); margin-top: 18px; margin-bottom: 30px; letter-spacing: 0.3px; text-shadow: 0 6px 18px rgba(0,229,255,0.12);">我们的愿景: 推动脑疾病诊疗迈入精准医学时代</p>
                     <p class="hero-subtitle" style="margin-top: 0px; font-size: calc(1.28rem * var(--font-scale)); color: var(--text-sub);">
@@ -1744,7 +1753,7 @@
                 opt_hint2: '页面内容更正请联系：',
                 
                 // 主页
-                hero_title: 'Lab of Intelligent Algorithms and Precision Therapeutics for',
+                hero_title: 'Lab of Intelligent Algorithms and Precision Therapeutics for Brain Disorders',
                 hero_highlight: 'Brain Disorders',
                 hero_subtitle1: '',
                 hero_subtitle2: '我们的愿景：推动脑疾病诊疗迈入精准医学时代',
@@ -1864,7 +1873,7 @@
                 opt_hint2: 'For content corrections, please contact: ',
                 
                 // Homepage
-                hero_title: 'Lab of Intelligent Algorithms and Precision Therapeutics for',
+                hero_title: 'Lab of Intelligent Algorithms and Precision Therapeutics for Brain Disorders',
                 hero_highlight: 'Brain Disorders',
                 hero_subtitle1: '',
                 hero_subtitle2: 'Our vision: Advancing brain disease diagnosis and treatment into the era of precision medicine',
