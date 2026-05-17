@@ -1365,11 +1365,54 @@
             .home-card-desc { display: none !important; }
 
             /* ==========================================
+               6. PI 教授简介：手机端改为上下单列居中排版
+               ========================================== */
+            .prof-layout { 
+                display: flex !important; 
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 15px !important; 
+            }
+            .prof-avatar { 
+                width: 160px !important;
+                margin: 0 auto !important; 
+            }
+            .prof-info { 
+                width: 100% !important; 
+                display: flex !important;
+                flex-direction: column !important;
+            }
+            .prof-info h2 { 
+                font-size: calc(2rem * var(--font-scale)) !important; 
+                text-align: center !important; 
+                margin-bottom: 5px !important;
+            }
+            .prof-info p.tags { 
+                text-align: center !important; 
+                font-size: calc(0.95rem * var(--font-scale)) !important; 
+                line-height: 1.6 !important;
+                margin-bottom: 12px !important;
+            }
+            .prof-info .email { 
+                text-align: center !important; 
+                font-size: calc(0.85rem * var(--font-scale)) !important; 
+                margin: 0 auto 20px auto !important;
+                display: table !important;
+                word-break: break-all !important;
+            }
+            .prof-info .summary, .achievement-text, .info-list ul li { 
+                text-align: left !important; 
+                font-size: calc(0.95rem * var(--font-scale)) !important; 
+                line-height: 1.7 !important; 
+            }
+            .info-list h4 {
+                font-size: calc(1.1rem * var(--font-scale)) !important;
+                margin-top: 15px !important;
+            }
+
+            /* ==========================================
                其余通用比例修正
                ========================================== */
-            .prof-avatar { width: 140px !important; margin-bottom: 20px !important; }
-            .prof-info h2 { font-size: calc(1.8rem * var(--font-scale)) !important; text-align: center; }
-            .prof-info p.tags, .prof-info .email { text-align: center; display: block; }
             .gallery-grid { grid-auto-columns: 85vw !important; gap: 10px !important; }
             .member-grid { grid-template-columns: repeat(2, minmax(130px, 1fr)) !important; gap: 10px !important; }
             .research-grid, .recruitment-grid, .media-block { grid-template-columns: 1fr !important; }
