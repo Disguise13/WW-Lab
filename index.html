@@ -1379,8 +1379,19 @@
                 line-height: 1.7 !important;
             }
 
-            .home-hero-panel { padding: 10px !important; }
-            .hero-eeg-wave { height: 20px !important; margin: 8px 0 !important; }
+            /* 首页极端去空行处理 */
+            .home-hero-panel { 
+                padding: 10px !important; 
+                margin-bottom: 0 !important; /* 👈 强制消除文字板块下方的留白 */
+                padding-bottom: 0 !important; /* 👈 消除文字板块底部的内部留白 */
+            }
+            .home-featured { 
+                margin-top: 5px !important;  /* 👈 让图片紧紧贴着上面的文字 */
+                margin-bottom: 0 !important;
+                padding: 0 !important; 
+            }
+            
+            .hero-eeg-wave { height: 18px !important; margin: 6px 0 !important; }
             .hero-desc { margin-top: 15px !important; }
 
             .home-grid { 
@@ -2460,7 +2471,23 @@
             const isLightMode = savedTheme === 'light';
             setTheme(isLightMode);
 
-            const largeTextEnabled = savedLargeText === '1';
+            // 1. 判断当前是否为手机屏幕
+            const isMobile = window.innerWidth <= 640;
+            
+            // 2. 设定大字号初始状态
+            let largeTextEnabled = false;
+
+            if (savedLargeText !== null) {
+                // 如果用户之前自己点过，听用户的
+                largeTextEnabled = savedLargeText === '1';
+            }
+
+            // 💡 核心修改：如果是手机端，【强制】设为关闭！
+            // 加上这句后，不论之前缓存有没有开，只要是手机屏幕一律默认关闭。
+            if (isMobile) {
+                largeTextEnabled = false;
+            }
+
             document.body.classList.toggle('large-text', largeTextEnabled);
             const largeTextOpt = document.getElementById('opt-large-text');
             if (largeTextOpt) largeTextOpt.checked = largeTextEnabled;
